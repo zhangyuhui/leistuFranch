@@ -1,0 +1,245 @@
+<!--
+       Licensed to the Apache Software Foundation (ASF) under one
+       or more contributor license agreements.  See the NOTICE file
+       distributed with this work for additional information
+       regarding copyright ownership.  The ASF licenses this file
+       to you under the Apache License, Version 2.0 (the
+       "License"); you may not use this file except in compliance
+       with the License.  You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing,
+       software distributed under the License is distributed on an
+       "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+       KIND, either express or implied.  See the License for the
+       specific language governing permissions and limitations
+       under the License.
+-->
+<html>
+  <head> 
+    <title>测试专用</title>
+    <script src="cordova.js"></script>
+    <script type="text/javascript">
+	var file;
+    /*
+    cordova.exec(function(winParam) {},
+            function(error) {},
+            "service",
+            "action",
+           ["firstArgument", "secondArgument", 42, false]);
+	
+    cordova.define("cordova/plugin/android/cordovaPass", function(require, exports, module) {
+        var exec = require('cordova/exec');
+
+        module.exports = {
+            goBack: function(){
+            	//arg1  成功回调
+            	//arg2 失败回调
+            	exec(callbacksuc, null, "User", "back", []);
+            },
+        	findpwd: function(loginname, password){
+        		exec(null, null, "User", "findpwd", [loginname, password]);
+        	},
+        	getUser: function(){
+				exec(getUser, null, "User", "getUser", []);
+			}
+        };
+    });
+    var callbacksuc = function(arg){
+    	alert(1);
+    }
+    var getUser = function(obj){
+    	alert(obj);
+    	
+    	for(var a in obj){
+    		alert(a);
+	    	alert(obj['userID']);
+    	}
+    	
+    }
+    var hello = function(i){
+    	alert(i)
+    }
+    cordovaPass = cordova.require("cordova/plugin/android/cordovaPass");
+    
+    cordova.define("cordova/plugin/android/course", function(require, exports, module) {
+        var exec = require('cordova/exec');
+
+        module.exports = {
+            play: function(audiofile){
+            	//arg1  成功回调
+            	//arg2 失败回调
+            	exec(onPlaySuc, onPlayFail, "Course", "play", [audiofile]);
+            },
+        	pause: function(loginname, password){
+        		exec(null, null, "Course", "pause", [loginname, password]);
+        	}
+        };
+    });
+	cordova.define("cordova/plugin/android/hw", function(require, exports, module) {
+        var exec = require('cordova/exec');
+
+        module.exports = {
+            upload: function(upFile){
+            	//arg1  成功回调
+            	//arg2 失败回调
+            	exec(null, null, "HomeWork", "uploadSpokenFile", upFile);
+            },
+			record: function(){
+            	exec(null, null, "HomeWork", "startRecord", "");
+			},
+			stopRecord: function(){
+				exec(null, null, "HomeWork", "stopRecord", "");
+			},
+			playRecord: function(record){
+				exec(null, null, "HomeWork", "playRecord", record);
+			},
+			stopPlayRecord: function(){
+				exec(null, null, "HomeWork", "stopPlayRecord", "");
+			},
+			selectFiles: function(){
+				exec(null, null, "HomeWork", "selecteSpokenFile", "");
+			},
+			testArray: function(){
+				exec(null, null, "HomeWork", "test", ["xx", "dd"]);
+			}
+        };
+    });
+	hw = cordova.require("cordova/plugin/android/hw");
+    course = cordova.require("cordova/plugin/android/course");
+    var onPlaySuc = function(obj){
+    	
+    	var str = JSON.stringify(obj);
+    	document.getElementsByTagName('body')[0].innerHTML  += str;
+    	//alert(str);
+    	//alert(obj);
+    	//alert(1)
+    }
+    var onPlayFail = function(err){
+    	alert(err);
+    }
+    
+    function play(){
+    	var audiofile = "http://leicloud.qiniudn.com/@/ios/record/1001179_20150112102255.aac";
+    	course.play(audiofile);
+    	//window.location.href = 'index (2).html';
+    }
+    function hell(obj){
+    		alert(obj);
+    }
+    
+    
+     function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+*/
+    cordova.define("cordova/plugin/android/course", function(require, exports, module) {
+                   var exec = require('cordova/exec');
+                   
+                   module.exports = {
+                   play: function(audiofile){
+                   //arg1  成功回调
+                   //arg2 失败回调
+                   exec(onPlaySuc, onPlayFail, "Course", "echo", [audiofile]);
+                   },
+                   pause: function(loginname, password){
+                   exec(null, null, "Course", "pause", [loginname, password]);
+                   }
+                   };
+                   });
+    course = cordova.require("cordova/plugin/android/course");
+    
+    
+//lyy  add   对应 类的方法名 ，Course 就是源码中插件config与页面约定好的暗号，作用是定位插件类，world 是传参 exec"()"内是传参，如下例子，前两个参数是方法 function(arg){alert("callback"+arg)},function(err){alert("callback1"+err)}, 后两个参数是 Course就是暗号，echo就是对应的插件类 也就是暗号所代表的类中的方法，而world就是js传给插件类的值。  而 至于play这个方法名，是js中与页面button对应的，try{ }catch(e){alert(e)}用于捕获异常，比如发不通之类的，肯定是参数有问题。最后只保留 暗号 方法名 和 world即可 arg 和err是回调函数中传回来的值。
+    
+    function play(){
+        try{
+            cordova.exec(function(arg){
+                         alert("abc"+arg)
+                         },
+
+                        function(err) {
+                         alert("cba"+err);
+                         }, "LEIapp", "finish", ["world"]);
+        }catch(e){
+            alert(e);
+        }
+
+    }
+    
+    function upload(){
+        alert(1);
+        try{
+            cordova.exec(function(){
+alert(2)
+                         },
+                         function() {
+alert(3)
+                         }, "Course", "back", ["world"]);
+        }catch(e){
+            alert(e);
+        }
+        
+    }
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        // Register the event listener
+        document.addEventListener("backbutton", onBackKeyDown, false);
+    }
+
+    // Handle the back button
+    //
+    function onBackKeyDown() {
+    	console.debug("1")
+    }
+	function uploadFileProgress(file, pro){
+	    console.debug(file+":"+pro);
+	}
+	function clientError(code, ms){
+		console.debug(code+"==="+ms);
+	}
+	function success(data){
+	alert(eval('(' + data + ')').he);
+		console.debug(data);
+	}
+	function volume(v){
+		document.getElementById('volume').value = ''+v;
+	}
+	function playRecord(){
+		hw.playRecord(file);
+	}
+	function recordFile(filePath){
+		file = filePath;
+	}
+	function upload(){
+		hw.upload(file);
+	}
+    </script>
+    
+    
+   
+
+    
+  </head>
+  <body onload="onLoad()">
+  声音：<input id="volume" /><br><!--
+	<button onclick="play()">play</button>
+	<a href="index1.html">index</a>
+	XXXXXXXXXXddddd-->
+  
+  	<button onclick="javascript:play()">finish</button>
+	<button onclick="javascript:upload()">getClass</button>
+	<p><button onclick="javascript:hw.record()">getUser</button></p>
+	<p><button onclick="javascript:hw.stopRecord()">stopRecord</button></p>
+	<p><button onclick="javascript:playRecord()">playRecord</button></p>
+	<p><button onclick="javascript:hw.stopPlayRecord()">stopPlayRecord</button></p>
+	<p><button onclick="javascript:hw.selectFiles()">selectFiles</button></p>
+		<p><button onclick="javascript:hw.playRecord('http://leicloud.qiniudn.com/@/ios/record/1001179_20150112102255.aac')">playNetAudio</button></p>
+	<p><button onclick="javascript:hw.testArray()">testArray</button></p>
+  </body>
+</html>
+<script>
+</script>

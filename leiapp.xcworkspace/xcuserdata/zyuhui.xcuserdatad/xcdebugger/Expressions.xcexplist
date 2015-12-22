@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[LEAccountService login:password:success:failure:]:LEAccountService.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[LEHttpRequestOperation requestByGet:parameters:success:failure:]:LEHttpRequestOperation.m">
+      </ContextState>
+      <ContextState
+         contextName = "__66-[LEHttpRequestOperation requestByGet:parameters:success:failure:]_block_invoke57:LEHttpRequestOperation.m">
+      </ContextState>
+      <ContextState
+         contextName = "__51-[LEAccountService login:password:success:failure:]_block_invoke:LEAccountService.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

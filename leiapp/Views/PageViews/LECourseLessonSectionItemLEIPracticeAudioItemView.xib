@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LECourseLessonSectionItemLEIPracticeAudioItemView">
+            <connections>
+                <outlet property="answerImageView" destination="PFB-Jd-uqv" id="znn-TQ-Qqr"/>
+                <outlet property="audioImageButton" destination="WfT-in-1gR" id="Fpr-C0-do9"/>
+                <outlet property="audioPlayViewHeightConstraint" destination="U7m-9j-wLP" id="V0R-UY-4op"/>
+                <outlet property="checkboxImageView" destination="X5g-Yz-35h" id="hQd-aT-0xO"/>
+                <outlet property="radioImageView" destination="2UN-JR-hVu" id="Efr-RS-Pqz"/>
+                <outlet property="textLabel" destination="76s-o7-C2p" id="6ql-C6-sQv"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="GBu-O3-JYV">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="courselesson_sectionpageview_radio_unchecked" highlightedImage="courselesson_sectionpageview_radio_checked" translatesAutoresizingMaskIntoConstraints="NO" id="2UN-JR-hVu" userLabel="radio_view">
+                    <rect key="frame" x="10" y="17" width="16" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="KvB-0R-HGI"/>
+                        <constraint firstAttribute="width" constant="16" id="WlD-wd-9ME"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="courselesson_sectionpageview_checkbox_unchecked" highlightedImage="courselesson_sectionpageview_checkbox_checked" translatesAutoresizingMaskIntoConstraints="NO" id="X5g-Yz-35h" userLabel="checkbox_view">
+                    <rect key="frame" x="10" y="17" width="16" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="16" id="9Bz-KM-O2O"/>
+                        <constraint firstAttribute="height" constant="16" id="Xa2-vf-D0P"/>
+                    </constraints>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="courselesson_sectionpageview_checkbox_unchecked" highlightedImage="courselesson_sectionpageview_checkbox_checked" translatesAutoresizingMaskIntoConstraints="NO" id="PFB-Jd-uqv" userLabel="answer_view">
+                    <rect key="frame" x="10" y="17" width="16" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="16" id="Dm3-07-HYU"/>
+                        <constraint firstAttribute="height" constant="16" id="Phg-cU-yMZ"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3f4-Th-Srj" userLabel="audio_play_view">
+                    <rect key="frame" x="85" y="0.0" width="130" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="播放音频" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76s-o7-C2p" userLabel="text_label">
+                            <rect key="frame" x="60" y="15" width="70" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="0Me-md-dM1"/>
+                                <constraint firstAttribute="width" constant="70" id="YXO-c7-CZR"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="highlightedColor" red="0.23529411759999999" green="0.69803921570000005" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WfT-in-1gR" userLabel="voice_view" customClass="LEProgressImageButton">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="3SL-rZ-K1f"/>
+                                <constraint firstAttribute="height" constant="50" id="NY8-fE-IP0"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="130" id="G53-nk-xxU"/>
+                        <constraint firstItem="WfT-in-1gR" firstAttribute="centerY" secondItem="3f4-Th-Srj" secondAttribute="centerY" id="TWf-Yr-jDK"/>
+                        <constraint firstAttribute="height" constant="50" id="U7m-9j-wLP"/>
+                        <constraint firstItem="WfT-in-1gR" firstAttribute="leading" secondItem="3f4-Th-Srj" secondAttribute="leading" id="bnl-PX-7I2"/>
+                        <constraint firstItem="76s-o7-C2p" firstAttribute="centerY" secondItem="3f4-Th-Srj" secondAttribute="centerY" id="yvd-a4-vH4"/>
+                        <constraint firstItem="76s-o7-C2p" firstAttribute="leading" secondItem="WfT-in-1gR" secondAttribute="trailing" constant="10" id="yyQ-3b-kB2"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="2UN-JR-hVu" firstAttribute="centerY" secondItem="GBu-O3-JYV" secondAttribute="centerY" id="Fxq-A1-2HU"/>
+                <constraint firstItem="PFB-Jd-uqv" firstAttribute="leading" secondItem="GBu-O3-JYV" secondAttribute="leading" constant="10" id="JaK-BY-j19"/>
+                <constraint firstItem="X5g-Yz-35h" firstAttribute="centerY" secondItem="GBu-O3-JYV" secondAttribute="centerY" id="TfQ-zM-nhG"/>
+                <constraint firstItem="PFB-Jd-uqv" firstAttribute="centerY" secondItem="GBu-O3-JYV" secondAttribute="centerY" id="YVE-i7-UZb"/>
+                <constraint firstItem="3f4-Th-Srj" firstAttribute="centerX" secondItem="GBu-O3-JYV" secondAttribute="centerX" id="Yuy-Q7-eGF"/>
+                <constraint firstItem="X5g-Yz-35h" firstAttribute="leading" secondItem="GBu-O3-JYV" secondAttribute="leading" constant="10" id="fcA-rC-tMk"/>
+                <constraint firstItem="3f4-Th-Srj" firstAttribute="centerY" secondItem="GBu-O3-JYV" secondAttribute="centerY" id="gqJ-8a-Y54"/>
+                <constraint firstItem="2UN-JR-hVu" firstAttribute="leading" secondItem="GBu-O3-JYV" secondAttribute="leading" constant="10" id="qV0-R3-N0K"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="courselesson_sectionpageview_checkbox_checked" width="16" height="16"/>
+        <image name="courselesson_sectionpageview_checkbox_unchecked" width="16" height="16"/>
+        <image name="courselesson_sectionpageview_radio_checked" width="16" height="16"/>
+        <image name="courselesson_sectionpageview_radio_unchecked" width="16" height="16"/>
+    </resources>
+</document>

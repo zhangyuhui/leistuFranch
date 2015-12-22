@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LEProfileEditViewController">
+            <connections>
+                <outlet property="displayNameTextField" destination="rdV-pf-nuV" id="QHC-kq-XwW"/>
+                <outlet property="displayNameTextFieldView" destination="HvV-Q5-gTK" id="Tgp-o2-1Fr"/>
+                <outlet property="sexTypesTableView" destination="Qlh-4s-tTH" id="doj-im-MQR"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="pyt-el-fQw"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qlh-4s-tTH" customClass="LEBaseTableView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="474"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="GqJ-Jp-xy8"/>
+                        <outlet property="delegate" destination="-1" id="60l-gk-EsM"/>
+                    </connections>
+                </tableView>
+                <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HvV-Q5-gTK">
+                    <rect key="frame" x="0.0" y="94" width="320" height="50"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入姓名" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="rdV-pf-nuV">
+                            <rect key="frame" x="10" y="0.0" width="300" height="50"/>
+                            <animations/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            <connections>
+                                <action selector="changeTextEditValue:" destination="-1" eventType="editingChanged" id="6V1-QM-DbU"/>
+                            </connections>
+                        </textField>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="rdV-pf-nuV" firstAttribute="top" secondItem="HvV-Q5-gTK" secondAttribute="top" id="7vb-li-4Vq"/>
+                        <constraint firstAttribute="trailing" secondItem="rdV-pf-nuV" secondAttribute="trailing" constant="10" id="9sZ-9R-gby"/>
+                        <constraint firstAttribute="height" constant="50" id="AxT-1E-QEl"/>
+                        <constraint firstAttribute="bottom" secondItem="rdV-pf-nuV" secondAttribute="bottom" id="DQd-EP-8xU"/>
+                        <constraint firstItem="rdV-pf-nuV" firstAttribute="leading" secondItem="HvV-Q5-gTK" secondAttribute="leading" constant="10" id="FL5-6k-Yi6"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Qlh-4s-tTH" secondAttribute="bottom" constant="94" id="2Ql-0z-bsH"/>
+                <constraint firstAttribute="trailing" secondItem="HvV-Q5-gTK" secondAttribute="trailing" id="a4L-hF-ySM"/>
+                <constraint firstAttribute="trailing" secondItem="Qlh-4s-tTH" secondAttribute="trailing" id="aHw-ch-gor"/>
+                <constraint firstItem="Qlh-4s-tTH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gqD-NV-KKz"/>
+                <constraint firstItem="HvV-Q5-gTK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lDw-HU-KZo"/>
+                <constraint firstItem="Qlh-4s-tTH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="v7E-2L-36n"/>
+                <constraint firstItem="HvV-Q5-gTK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="94" id="yhM-wA-rdt"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="250" y="210"/>
+        </view>
+    </objects>
+</document>

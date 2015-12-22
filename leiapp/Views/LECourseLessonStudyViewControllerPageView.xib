@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LECourseLessonStudyViewControllerPageView">
+            <connections>
+                <outlet property="contentView" destination="cvt-49-NXa" id="JGp-cP-sRB"/>
+                <outlet property="scrollView" destination="AyZ-Sg-pEV" id="ws8-2r-n8T"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="J3I-Vd-sch">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AyZ-Sg-pEV" userLabel="scroll_view">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cvt-49-NXa" userLabel="content_view">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
+                            <animations/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="400" placeholder="YES" id="3iG-99-Pop"/>
+                                <constraint firstAttribute="width" constant="320" placeholder="YES" id="m0W-7t-ReD"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="cvt-49-NXa" secondAttribute="trailing" id="VEl-cL-yoq"/>
+                        <constraint firstAttribute="bottom" secondItem="cvt-49-NXa" secondAttribute="bottom" id="Wea-eK-xU3"/>
+                        <constraint firstItem="cvt-49-NXa" firstAttribute="top" secondItem="AyZ-Sg-pEV" secondAttribute="top" id="wJ4-Ah-QxC"/>
+                        <constraint firstItem="cvt-49-NXa" firstAttribute="leading" secondItem="AyZ-Sg-pEV" secondAttribute="leading" id="xeD-oc-N2M"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="AyZ-Sg-pEV" firstAttribute="top" secondItem="J3I-Vd-sch" secondAttribute="top" id="4Wf-4j-FJ8"/>
+                <constraint firstAttribute="trailing" secondItem="AyZ-Sg-pEV" secondAttribute="trailing" id="52C-an-QgP"/>
+                <constraint firstItem="AyZ-Sg-pEV" firstAttribute="leading" secondItem="J3I-Vd-sch" secondAttribute="leading" id="Gdu-Ki-7D4"/>
+                <constraint firstAttribute="bottom" secondItem="AyZ-Sg-pEV" secondAttribute="bottom" id="fUs-dL-UFv"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="172" y="-4"/>
+        </view>
+    </objects>
+</document>

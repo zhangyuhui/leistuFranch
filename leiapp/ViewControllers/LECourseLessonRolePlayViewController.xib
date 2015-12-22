@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LECourseLessonRolePlayViewController">
+            <connections>
+                <outlet property="audioView" destination="p8F-L9-Lb4" id="Ard-oT-dTi"/>
+                <outlet property="audioViewHeightConstraint" destination="t3u-1P-Ezy" id="O8b-wk-oWw"/>
+                <outlet property="buttonView" destination="gSC-SM-a8J" id="x4V-2B-UE1"/>
+                <outlet property="quiteButton" destination="Gnw-N8-tR6" id="SnA-YR-irD"/>
+                <outlet property="replayAudioView" destination="dbo-0Y-fAE" id="oyl-LO-huL"/>
+                <outlet property="replayButton" destination="465-cM-WHr" id="zzA-hp-ie5"/>
+                <outlet property="replayView" destination="rBP-ux-MWs" id="EI2-a0-AIN"/>
+                <outlet property="scriptsLabel" destination="uGy-cm-Rmh" id="56G-i4-QiA"/>
+                <outlet property="scriptsLabelHeightConstraint" destination="mT1-zq-42t" id="Epp-em-HvR"/>
+                <outlet property="startLabel" destination="U8y-n9-ds9" id="eDY-ea-5gq"/>
+                <outlet property="videoView" destination="gCd-2A-qae" id="HzP-2K-D1C"/>
+                <outlet property="videoViewHeightConstraint" destination="En3-Y3-HG3" id="2IM-W8-Ikd"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8F-L9-Lb4" customClass="LECourseLessonRolePlayLeadingView">
+                    <rect key="frame" x="0.0" y="378" width="320" height="190"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="190" id="t3u-1P-Ezy"/>
+                    </constraints>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gCd-2A-qae" userLabel="Video View" customClass="LECourseLessonRolePlaySupportingView">
+                    <rect key="frame" x="0.0" y="368" width="320" height="200"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="En3-Y3-HG3"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGy-cm-Rmh" customClass="RTLabel">
+                    <rect key="frame" x="10" y="220" width="300" height="125"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="125" id="mT1-zq-42t"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8y-n9-ds9" userLabel="Start View">
+                    <rect key="frame" x="10" y="240" width="300" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="300" id="R6H-4g-e7L"/>
+                        <constraint firstAttribute="height" constant="100" id="dHN-gN-WqR"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gSC-SM-a8J" userLabel="Button View">
+                    <rect key="frame" x="10" y="378" width="300" height="162"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="465-cM-WHr">
+                            <rect key="frame" x="30" y="40" width="240" height="40"/>
+                            <color key="backgroundColor" red="0.29019607843137252" green="0.78431372549019607" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="XW8-gD-AnG"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="播放录音">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted">
+                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="clickReplayButton:" destination="-1" eventType="touchUpInside" id="SXi-iR-RE6"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gnw-N8-tR6">
+                            <rect key="frame" x="30" y="103" width="240" height="40"/>
+                            <color key="backgroundColor" red="0.29019607843137252" green="0.78431372549019607" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="ZRy-TU-C3P"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="重选角色">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted">
+                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="clickRetryButton:" destination="-1" eventType="touchUpInside" id="uqx-mn-MPN"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="465-cM-WHr" firstAttribute="leading" secondItem="gSC-SM-a8J" secondAttribute="leading" constant="30" id="DwX-2r-WQo"/>
+                        <constraint firstItem="Gnw-N8-tR6" firstAttribute="leading" secondItem="gSC-SM-a8J" secondAttribute="leading" constant="30" id="Hz8-1a-z5u"/>
+                        <constraint firstAttribute="trailing" secondItem="Gnw-N8-tR6" secondAttribute="trailing" constant="30" id="VHX-iy-8z8"/>
+                        <constraint firstAttribute="trailing" secondItem="465-cM-WHr" secondAttribute="trailing" constant="30" id="cWB-GJ-lTu"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="129" id="epg-kL-86l"/>
+                        <constraint firstItem="Gnw-N8-tR6" firstAttribute="top" secondItem="465-cM-WHr" secondAttribute="bottom" constant="23" id="lMh-jQ-YGE"/>
+                        <constraint firstItem="465-cM-WHr" firstAttribute="top" secondItem="gSC-SM-a8J" secondAttribute="top" constant="40" id="swO-5x-bxM"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="162" id="uN3-Gz-Xdv"/>
+                        <constraint firstAttribute="height" constant="162" id="wrW-XG-xJq"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="epg-kL-86l"/>
+                            <exclude reference="uN3-Gz-Xdv"/>
+                        </mask>
+                    </variation>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBP-ux-MWs" userLabel="Replay View">
+                    <rect key="frame" x="0.0" y="100" width="320" height="200"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="录音回放中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ggx-pk-cp0">
+                            <rect key="frame" x="60" y="10" width="200" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="vEJ-DU-1ci"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dbo-0Y-fAE" customClass="LECourseLessonRolePlayReplayView">
+                            <rect key="frame" x="0.0" y="60" width="320" height="140"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="140" id="dF9-3u-gyY"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Ggx-pk-cp0" secondAttribute="trailing" constant="60" id="BbK-rQ-beX"/>
+                        <constraint firstItem="dbo-0Y-fAE" firstAttribute="top" secondItem="rBP-ux-MWs" secondAttribute="top" constant="60" id="DrZ-cC-BOl"/>
+                        <constraint firstItem="Ggx-pk-cp0" firstAttribute="leading" secondItem="rBP-ux-MWs" secondAttribute="leading" constant="60" id="EBi-eC-lsD"/>
+                        <constraint firstAttribute="height" constant="200" id="FGn-fe-SaW"/>
+                        <constraint firstItem="dbo-0Y-fAE" firstAttribute="leading" secondItem="rBP-ux-MWs" secondAttribute="leading" id="Fly-Kf-ces"/>
+                        <constraint firstAttribute="trailing" secondItem="dbo-0Y-fAE" secondAttribute="trailing" id="KaO-su-Wtm"/>
+                        <constraint firstItem="Ggx-pk-cp0" firstAttribute="top" secondItem="rBP-ux-MWs" secondAttribute="top" constant="10" id="gob-9O-zXx"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="gSC-SM-a8J" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="2Rt-iE-gwG"/>
+                <constraint firstAttribute="bottom" secondItem="uGy-cm-Rmh" secondAttribute="bottom" constant="223" id="9rq-Cg-Apj"/>
+                <constraint firstAttribute="trailing" secondItem="uGy-cm-Rmh" secondAttribute="trailing" constant="10" id="BlB-aP-liu"/>
+                <constraint firstItem="U8y-n9-ds9" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="6" id="HKZ-LT-FQ4"/>
+                <constraint firstAttribute="bottom" secondItem="gCd-2A-qae" secondAttribute="bottom" id="HkN-cC-xD7"/>
+                <constraint firstItem="rBP-ux-MWs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="KcR-ca-AKz"/>
+                <constraint firstAttribute="trailing" secondItem="p8F-L9-Lb4" secondAttribute="trailing" id="R3W-u6-odB"/>
+                <constraint firstAttribute="trailing" secondItem="gSC-SM-a8J" secondAttribute="trailing" constant="10" id="Z5z-vs-zYV"/>
+                <constraint firstItem="gSC-SM-a8J" firstAttribute="top" secondItem="uGy-cm-Rmh" secondAttribute="bottom" constant="30" id="aDO-vk-5rM"/>
+                <constraint firstItem="p8F-L9-Lb4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="imW-Yi-HVf"/>
+                <constraint firstAttribute="bottom" secondItem="p8F-L9-Lb4" secondAttribute="bottom" id="joH-Gj-362"/>
+                <constraint firstItem="U8y-n9-ds9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="quj-W5-b6G"/>
+                <constraint firstItem="rBP-ux-MWs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tJJ-Cx-tV7"/>
+                <constraint firstAttribute="trailing" secondItem="rBP-ux-MWs" secondAttribute="trailing" id="uQS-KT-bgh"/>
+                <constraint firstItem="gCd-2A-qae" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vXT-Vh-igT"/>
+                <constraint firstItem="uGy-cm-Rmh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="xGJ-g7-GrO"/>
+                <constraint firstAttribute="bottom" secondItem="gSC-SM-a8J" secondAttribute="bottom" constant="28" id="z3o-rj-kDW"/>
+                <constraint firstAttribute="trailing" secondItem="gCd-2A-qae" secondAttribute="trailing" id="zVJ-Es-eEF"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="aDO-vk-5rM"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

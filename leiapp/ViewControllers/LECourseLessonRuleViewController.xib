@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LECourseLessonRuleViewController">
+            <connections>
+                <outlet property="contentScrollView" destination="lIM-4N-hXd" id="Ggs-ca-cFD"/>
+                <outlet property="contentView" destination="WDx-sT-ngr" id="r84-pw-yDc"/>
+                <outlet property="courseCoverView" destination="vIU-cu-uVk" id="PGn-v8-4uz"/>
+                <outlet property="coursePracticeView" destination="Ily-1M-Jez" id="90j-1Z-4Cn"/>
+                <outlet property="courseProgressView" destination="x8B-7k-djf" id="cZT-H2-aDG"/>
+                <outlet property="courseScorePanelView" destination="8xx-yu-x4K" id="1gi-wL-8XO"/>
+                <outlet property="lessonScorePanelView" destination="8VE-Fq-ZXp" id="CgV-dc-veo"/>
+                <outlet property="pageFooterLabel" destination="jqh-Kg-gXF" id="Rjo-WS-Yts"/>
+                <outlet property="pageHeaderLabel" destination="BMf-kf-bZ8" id="7aL-E4-U9s"/>
+                <outlet property="pageScorePanelView" destination="U7s-Hh-5XJ" id="mvY-Eb-XUj"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lIM-4N-hXd" userLabel="content_scroll_view">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WDx-sT-ngr" userLabel="content_view">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="850"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xx-yu-x4K" userLabel="course_score_panel_view" customClass="LECourseLessonRuleViewControllerPanelView">
+                                    <rect key="frame" x="10" y="10" width="300" height="55"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="55" id="onT-MS-Nku"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vIU-cu-uVk" userLabel="course_score_image_view" customClass="LECourseLessonRuleViewControllerCoverView">
+                                    <rect key="frame" x="10" y="65" width="300" height="245"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="245" id="3we-nm-Co3"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8VE-Fq-ZXp" userLabel="lesson_score_panel_view" customClass="LECourseLessonRuleViewControllerPanelView">
+                                    <rect key="frame" x="10" y="310" width="300" height="55"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="55" id="cnD-az-wBc"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x8B-7k-djf" userLabel="lesson_score_image_view" customClass="LECourseLessonRuleViewControllerProgressView">
+                                    <rect key="frame" x="10" y="365" width="300" height="200"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="200" id="JAo-6Z-eBg"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U7s-Hh-5XJ" userLabel="page_score_panel_view" customClass="LECourseLessonRuleViewControllerPanelView">
+                                    <rect key="frame" x="10" y="565" width="300" height="55"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="55" id="3Jy-4a-gWH"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMf-kf-bZ8" userLabel="page_score_header_view">
+                                    <rect key="frame" x="10" y="620" width="300" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="25" placeholder="YES" id="KqB-7T-jsf"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ily-1M-Jez" userLabel="page_score_image_view" customClass="LECourseLessonRuleViewControllerPracticeView">
+                                    <rect key="frame" x="10" y="645" width="300" height="180"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="180" id="cPh-MZ-WRS"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqh-Kg-gXF" userLabel="page_score_footer_view">
+                                    <rect key="frame" x="10" y="825" width="300" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="25" placeholder="YES" id="5TI-KJ-aK2"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="jqh-Kg-gXF" secondAttribute="trailing" constant="10" id="0fZ-Vl-Uis"/>
+                                <constraint firstAttribute="trailing" secondItem="8VE-Fq-ZXp" secondAttribute="trailing" constant="10" id="5F3-KX-UvO"/>
+                                <constraint firstAttribute="trailing" secondItem="vIU-cu-uVk" secondAttribute="trailing" constant="10" id="5QE-Ti-zja"/>
+                                <constraint firstAttribute="height" constant="850" placeholder="YES" id="6fE-Ud-xLP"/>
+                                <constraint firstAttribute="trailing" secondItem="Ily-1M-Jez" secondAttribute="trailing" constant="10" id="Ang-hP-d6S"/>
+                                <constraint firstItem="8VE-Fq-ZXp" firstAttribute="top" secondItem="vIU-cu-uVk" secondAttribute="bottom" id="Aom-VR-Iik"/>
+                                <constraint firstItem="x8B-7k-djf" firstAttribute="leading" secondItem="WDx-sT-ngr" secondAttribute="leading" constant="10" id="CiO-8Z-7rK"/>
+                                <constraint firstItem="U7s-Hh-5XJ" firstAttribute="leading" secondItem="WDx-sT-ngr" secondAttribute="leading" constant="10" id="D58-ue-1e1"/>
+                                <constraint firstItem="Ily-1M-Jez" firstAttribute="top" secondItem="BMf-kf-bZ8" secondAttribute="bottom" id="DYS-qR-tzF"/>
+                                <constraint firstItem="vIU-cu-uVk" firstAttribute="top" secondItem="8xx-yu-x4K" secondAttribute="bottom" id="H65-1a-Zo8"/>
+                                <constraint firstItem="8VE-Fq-ZXp" firstAttribute="leading" secondItem="WDx-sT-ngr" secondAttribute="leading" constant="10" id="LAh-Gy-s2Z"/>
+                                <constraint firstAttribute="width" constant="320" placeholder="YES" id="NYv-Au-ehe"/>
+                                <constraint firstItem="jqh-Kg-gXF" firstAttribute="leading" secondItem="WDx-sT-ngr" secondAttribute="leading" constant="10" id="Psc-Kl-K1j"/>
+                                <constraint firstItem="8xx-yu-x4K" firstAttribute="top" secondItem="WDx-sT-ngr" secondAttribute="top" constant="10" id="Rh4-0F-dak"/>
+                                <constraint firstItem="BMf-kf-bZ8" firstAttribute="leading" secondItem="WDx-sT-ngr" secondAttribute="leading" constant="10" id="WIz-wf-DUz"/>
+                                <constraint firstItem="Ily-1M-Jez" firstAttribute="leading" secondItem="WDx-sT-ngr" secondAttribute="leading" constant="10" id="Y8A-E3-7Z5"/>
+                                <constraint firstAttribute="trailing" secondItem="8xx-yu-x4K" secondAttribute="trailing" constant="10" id="ZfM-CR-8R9"/>
+                                <constraint firstAttribute="trailing" secondItem="BMf-kf-bZ8" secondAttribute="trailing" constant="10" id="Zu0-5P-rIQ"/>
+                                <constraint firstAttribute="trailing" secondItem="x8B-7k-djf" secondAttribute="trailing" constant="10" id="aDF-Yb-YJL"/>
+                                <constraint firstItem="BMf-kf-bZ8" firstAttribute="top" secondItem="U7s-Hh-5XJ" secondAttribute="bottom" id="db1-9M-y7J"/>
+                                <constraint firstItem="jqh-Kg-gXF" firstAttribute="top" secondItem="Ily-1M-Jez" secondAttribute="bottom" id="lHa-ri-Bkz"/>
+                                <constraint firstAttribute="trailing" secondItem="U7s-Hh-5XJ" secondAttribute="trailing" constant="10" id="neq-Yu-fjy"/>
+                                <constraint firstItem="8xx-yu-x4K" firstAttribute="leading" secondItem="WDx-sT-ngr" secondAttribute="leading" constant="10" id="pz7-ok-0Qt"/>
+                                <constraint firstItem="x8B-7k-djf" firstAttribute="top" secondItem="8VE-Fq-ZXp" secondAttribute="bottom" id="sjt-cw-cyY"/>
+                                <constraint firstItem="BMf-kf-bZ8" firstAttribute="top" secondItem="x8B-7k-djf" secondAttribute="bottom" constant="55" id="tc0-De-IwB"/>
+                                <constraint firstItem="vIU-cu-uVk" firstAttribute="leading" secondItem="WDx-sT-ngr" secondAttribute="leading" constant="10" id="w1f-kx-PPH"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="WDx-sT-ngr" secondAttribute="bottom" constant="-282" id="EwP-Tr-L0g"/>
+                        <constraint firstItem="WDx-sT-ngr" firstAttribute="top" secondItem="lIM-4N-hXd" secondAttribute="top" id="Lwo-3l-cuB"/>
+                        <constraint firstAttribute="trailing" secondItem="WDx-sT-ngr" secondAttribute="trailing" id="fQb-Eh-lu3"/>
+                        <constraint firstItem="WDx-sT-ngr" firstAttribute="leading" secondItem="lIM-4N-hXd" secondAttribute="leading" id="ul7-00-4lg"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="0.90588235294117647" green="0.90588235294117647" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="lIM-4N-hXd" secondAttribute="trailing" id="2nE-mI-eZJ"/>
+                <constraint firstItem="lIM-4N-hXd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Dp6-Dc-4jz"/>
+                <constraint firstItem="lIM-4N-hXd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="lol-nk-Cb7"/>
+                <constraint firstAttribute="bottom" secondItem="lIM-4N-hXd" secondAttribute="bottom" id="tGR-Fm-YvE"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="-89" y="317"/>
+        </view>
+    </objects>
+</document>

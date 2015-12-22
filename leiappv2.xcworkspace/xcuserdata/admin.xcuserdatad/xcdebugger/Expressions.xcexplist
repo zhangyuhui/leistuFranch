@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[LEAccountService loginUser:password:success:failure:]:LEAccountService.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[password md5Hash]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

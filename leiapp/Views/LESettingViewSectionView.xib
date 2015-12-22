@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LESettingViewSectionView">
+            <connections>
+                <outlet property="titleLabel" destination="PBI-sZ-utT" id="2Ts-YS-mok"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W3j-oc-Lz5" userLabel="seperator_view">
+                    <rect key="frame" x="20" y="13" width="2" height="14"/>
+                    <color key="backgroundColor" red="0.21960784310000001" green="0.77647058820000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="14" id="TvB-Pa-rgb"/>
+                        <constraint firstAttribute="width" constant="2" id="b6P-0B-cPg"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBI-sZ-utT" userLabel="title_label">
+                    <rect key="frame" x="30" y="9" width="262" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="TZB-VC-O1R"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LxP-eD-Yff" userLabel="divider_view">
+                    <rect key="frame" x="0.0" y="39" width="320" height="1"/>
+                    <color key="backgroundColor" red="0.90588235294117647" green="0.90588235294117647" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="7EM-lK-7Mn"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="W3j-oc-Lz5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="BFx-tU-INi"/>
+                <constraint firstItem="PBI-sZ-utT" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="PB7-a0-DF2"/>
+                <constraint firstItem="LxP-eD-Yff" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YWo-Pi-fh2"/>
+                <constraint firstAttribute="bottom" secondItem="LxP-eD-Yff" secondAttribute="bottom" id="Zhi-wB-L6n"/>
+                <constraint firstItem="W3j-oc-Lz5" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ghN-Vg-m7Y"/>
+                <constraint firstAttribute="trailing" secondItem="PBI-sZ-utT" secondAttribute="trailing" constant="28" id="lj0-JD-62n"/>
+                <constraint firstItem="PBI-sZ-utT" firstAttribute="leading" secondItem="W3j-oc-Lz5" secondAttribute="trailing" constant="8" id="pe0-zr-RcY"/>
+                <constraint firstAttribute="trailing" secondItem="LxP-eD-Yff" secondAttribute="trailing" id="r9k-S0-LTs"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

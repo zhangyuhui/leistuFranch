@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LECourseLessonGlossaryDetailStackedCardView">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C28-El-t8X" userLabel="name_label">
+                    <rect key="frame" x="50" y="100" width="200" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="NTN-Er-SUr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ltC-Xt-NiB" userLabel="content_label">
+                    <rect key="frame" x="50" y="130" width="200" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="YKE-Yt-wKW"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ltC-Xt-NiB" firstAttribute="top" secondItem="C28-El-t8X" secondAttribute="bottom" constant="9" id="PGb-82-BGp"/>
+                <constraint firstAttribute="trailing" secondItem="C28-El-t8X" secondAttribute="trailing" constant="50" id="bZD-gX-9gS"/>
+                <constraint firstItem="C28-El-t8X" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="c4l-Vq-TRm"/>
+                <constraint firstAttribute="trailing" secondItem="ltC-Xt-NiB" secondAttribute="trailing" constant="50" id="eGo-q5-V6v"/>
+                <constraint firstItem="ltC-Xt-NiB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="kxy-ip-kza"/>
+                <constraint firstItem="C28-El-t8X" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="100" id="oOj-VE-Agl"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="contentLabel" destination="ltC-Xt-NiB" id="oaW-0W-aEN"/>
+                <outlet property="nameLabel" destination="C28-El-t8X" id="Uux-MJ-Ycn"/>
+            </connections>
+        </view>
+    </objects>
+</document>
