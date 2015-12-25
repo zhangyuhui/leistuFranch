@@ -23,7 +23,8 @@
 @property (nonatomic, assign) int index;
 
 - (BOOL)hasImages;
+- (BOOL)hasAudios;
 - (BOOL)hasOptions;
-- (BOOL)hasAnswers;
+- (BOOL)hasInputs;
 
 @end

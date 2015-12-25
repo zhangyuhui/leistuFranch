@@ -8,46 +8,64 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 		<key>DZNEmptyDataSet.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>JSONModel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>Mantle.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 		<key>Pods-leiappv2.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 		<key>RegexKitLite.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>7</integer>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>8</integer>
 		</dict>
 		<key>UIImage+ImageWithColor.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>9</integer>
 		</dict>
 		<key>iOS-Slide-Menu.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -57,17 +75,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>045DE22118ED8977F1DB7B1597927605</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5352D432641F0656C90741034E32F31E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7A9599D4CAC5FEC129E09F45D43A673E</key>
+		<key>5E794A0B86E24EECF26513861CE4B198</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7D026FE7196A9A5C407698723ABB4D69</key>
+		<key>63A1E441110102239CEB03DE6FBE9C76</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7A9599D4CAC5FEC129E09F45D43A673E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,17 +110,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>956EDFBC445BE1C343186A2675C7896A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A3C0EB9C115789174A39D969E01B19EB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BE5A3DB7E6E1EF8F43FA4B6C03986A1E</key>
+		<key>D16AE6C97A875B3EF2127482FC76EE4E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

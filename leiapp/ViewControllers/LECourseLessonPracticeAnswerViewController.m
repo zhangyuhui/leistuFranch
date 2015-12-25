@@ -8,6 +8,7 @@
 
 #import "LECourseLessonPracticeAnswerViewController.h"
 #import "LECourseLessonSectionItemLEIPracticeView.h"
+#import "LECourseLessonPracticeAnswerFooterView.h"
 
 #define kPageTitle                      @"课程答案"
 #define kPagePadding                    10
@@ -76,7 +77,7 @@
             [question.answers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                 NSString* answer = (NSString*)obj;
                 NSString* selection = [question.selections objectAtIndex:idx];
-                if (![answer isEqualToString:selection]) {
+                if ([answer caseInsensitiveCompare:selection] != NSOrderedSame) {
                     isCorrect = false;
                     *stop = true;
                 }
@@ -146,6 +147,72 @@
         prevView = view;
         
         [self.itemViews addObject:view];
+        
+        
+        if ([question hasInputs]) {
+            CGFloat footX = itemX;
+            CGFloat footY = itemY;
+            CGFloat footWidth = itemWidth;
+            
+            LECourseLessonPracticeAnswerFooterView* footerView = [[LECourseLessonPracticeAnswerFooterView alloc] initWithFrame:CGRectMake(footX, footY, footWidth, 90)];
+            
+            footerView.answers = question.answers;
+            
+            [footerView setTranslatesAutoresizingMaskIntoConstraints:NO];
+            
+            CGFloat footerHeight = [footerView heightForView];
+            
+            CGRect footerFrame = footerView.frame;
+            footerFrame.size.height = footerHeight;
+            footerView.frame = footerFrame;
+            
+            NSLayoutConstraint *footerHeightConstraint = [NSLayoutConstraint constraintWithItem:footerView
+                                                                                attribute:NSLayoutAttributeHeight
+                                                                                relatedBy:NSLayoutRelationEqual
+                                                                                   toItem:nil
+                                                                                attribute:NSLayoutAttributeHeight
+                                                                               multiplier:0.0
+                                                                                 constant:footerHeight];
+            
+            [footerView addConstraint:footerHeightConstraint];
+            
+            NSLayoutConstraint *footerWidthConstraint = [NSLayoutConstraint constraintWithItem:footerView
+                                                                               attribute:NSLayoutAttributeWidth
+                                                                               relatedBy:NSLayoutRelationEqual
+                                                                                  toItem:nil
+                                                                               attribute:NSLayoutAttributeWidth
+                                                                              multiplier:0.0
+                                                                                constant:footWidth];
+            
+            [footerView addConstraint:footerWidthConstraint];
+            
+            
+            [self.contentView addSubview:footerView];
+            
+            NSLayoutConstraint *footerLeadingConstraint = [NSLayoutConstraint constraintWithItem:footerView
+                                                                                 attribute:NSLayoutAttributeLeading
+                                                                                 relatedBy:NSLayoutRelationEqual
+                                                                                    toItem:self.contentView
+                                                                                 attribute:NSLayoutAttributeLeading
+                                                                                multiplier:1.0
+                                                                                  constant:footX];
+            [self.contentView addConstraint:footerLeadingConstraint];
+            
+            NSLayoutConstraint *footerTopConstraint = [NSLayoutConstraint constraintWithItem:footerView
+                                                                             attribute:NSLayoutAttributeTop
+                                                                             relatedBy:NSLayoutRelationEqual
+                                                                                toItem:prevView
+                                                                             attribute:NSLayoutAttributeBottom
+                                                                            multiplier:1.0
+                                                                              constant:itemPadding];
+            
+            [self.contentView addConstraint:footerTopConstraint];
+            
+            itemY += footerHeight;
+            prevView = footerView;
+            
+            [self.itemViews addObject:footerView];
+        }
     }
     
     itemY += kPagePadding;

@@ -13,6 +13,8 @@
 
 - (void)viewDidLoad {
     _checked = NO;
+    _editable = NO;
+    _editing = NO;
     self.containerView.backgroundColor = [UIColor whiteColor];
     self.layer.borderWidth = 1.0;
     self.layer.borderColor = UIColorFromRGB(0xe3e3e3).CGColor;

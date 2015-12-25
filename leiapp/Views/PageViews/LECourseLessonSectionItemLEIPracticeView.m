@@ -35,22 +35,60 @@
     _question = question;
     _playing = NO;
  
+    if ([question hasInputs]) {
+        if (self.question.selections == nil || [self.question.selections count] == 0) {
+            NSUInteger count = [self.question.answers count];
+            NSMutableArray* selections = [NSMutableArray arrayWithCapacity:count];
+            for (NSUInteger i = 0; i < count ; i ++) {
+                [selections addObject:@""];
+            }
+            self.question.selections = selections;
+        }
+    }
+    
     self.itemViews = [NSMutableArray new];
     
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self setupTitleView];
     [self setupItemViews];
+    
+    __block BOOL editable = NO;
+    [self.itemViews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL* stop) {
+        LECourseLessonSectionItemLEIPracticeItemView* otherView = (LECourseLessonSectionItemLEIPracticeItemView*)obj;
+        if (otherView.editable) {
+            editable = YES;
+            *stop = YES;
+        }
+    }];
+    
+    self.editable = editable;
+    self.editing = NO;
+}
+
+- (void)setEditing:(BOOL)editing {
+    _editing = editing;
+    if (!editing) {
+        [self.itemViews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL* stop) {
+            LECourseLessonSectionItemLEIPracticeItemView* otherView = (LECourseLessonSectionItemLEIPracticeItemView*)obj;
+            if (otherView.editing) {
+                otherView.editing = NO;
+            }
+        }];
+    }
 }
 
 -(void)removeFromSuperview {
-    if ([self.question.audios count] > 0) {
-        NSString* audio = [self.question.audios firstObject];
-        if (![NSString stringIsNilOrEmpty:audio]) {
-            [self.itemViews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL* stop) {
-                LECourseLessonSectionItemLEIPracticeAudioItemView* audioView = (LECourseLessonSectionItemLEIPracticeAudioItemView*)obj;
-                [audioView removeObserver:self forKeyPath:@"playing"];
-            }];
-        }
+    if ([self.question hasAudios]) {
+        [self.itemViews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL* stop) {
+            LECourseLessonSectionItemLEIPracticeAudioItemView* audioView = (LECourseLessonSectionItemLEIPracticeAudioItemView*)obj;
+            [audioView removeObserver:self forKeyPath:@"playing"];
+        }];
+    }
+    if ([self.question hasInputs]) {
+        [self.itemViews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL* stop) {
+            LECourseLessonSectionItemLEIPracticeInputItemView* audioView = (LECourseLessonSectionItemLEIPracticeInputItemView*)obj;
+            [audioView removeObserver:self forKeyPath:@"editing"];
+        }];
     }
     [super removeFromSuperview];
 }
@@ -125,8 +163,8 @@
         [self setupImageItemViews];
     } else if ([self.question hasOptions]) {
         [self setupRegularItemViews];
-    } else if ([self.question hasAnswers]) {
-        [self setupFillItemViews];
+    } else if ([self.question hasInputs]) {
+        [self setupInputItemViews];
     } else {
         [self setupFillItemView];
     }
@@ -270,15 +308,15 @@
     self.viewHeight = viewY;
 }
 
--(void)setupFillItemViews {
+-(void)setupInputItemViews {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
     CGFloat viewPadding = [[LEPreferenceService sharedService] paddingSize];
-    CGFloat viewWidth = (screenWidth - viewPadding*5.0)/2.0;
+    CGFloat viewWidth = (screenWidth - viewPadding*2.0);
     CGFloat viewHeight = -1;
-    int itemCount = (int)[self.question.images count];
+    int itemCount = (int)[self.question.selections count];
     
-    CGFloat viewX = viewPadding;
+    CGFloat viewX = 0;
     CGFloat viewY = self.viewHeight + viewPadding;
     for (int itemIndex = 0 ; itemIndex < itemCount; itemIndex ++) {
         LECourseLessonSectionItemLEIPracticeItemView* view = [self generatedItemView:itemIndex frame:CGRectMake(viewX, viewY, viewWidth, CGFLOAT_MAX)];
@@ -381,39 +419,52 @@
 
 -(LECourseLessonSectionItemLEIPracticeItemView*)generatedItemView:(int)index frame:(CGRect)frame {
     LECourseLessonSectionItemLEIPracticeItemView* view;
-    NSString* option = [self.question.options objectAtIndexedSubscript:index];
-    NSString* image = [self.question.images objectAtIndexedSubscript:index];
-    NSString* audio = [self.question.audios objectAtIndexedSubscript:index];
-    
-    if (![NSString stringIsNilOrEmpty:option]) {
+    if ([self.question hasOptions]) {
         LECourseLessonSectionItemLEIPracticeOptionItemView* optionView = [self generatedOptionItemView:index frame:frame];
         view = optionView;
-    } else if (![NSString stringIsNilOrEmpty:audio]) {
+    } else if ([self.question hasAudios]) {
+        NSString* audio = [self.question.audios objectAtIndexedSubscript:index];
         LECourseLessonSectionItemLEIPracticeAudioItemView* audioView = [self generatedAudioItemView:index frame:frame];
         audioView.audio = [LECourseLessonSectionItemView pathForAsset:audio];
         [audioView addObserver:self forKeyPath:@"playing" options:NSKeyValueObservingOptionNew context:nil];
         view = audioView;
-    } else if (![NSString stringIsNilOrEmpty:image]) {
+    } else if ([self.question hasImages]) {
+        NSString* image = [self.question.images objectAtIndexedSubscript:index];
         LECourseLessonSectionItemLEIPracticeImageItemView* imageView = [self generatedImageItemView:index frame:frame];
         imageView.image = [LECourseLessonSectionItemView pathForAsset:image];
-        [imageView addObserver:self forKeyPath:@"playing" options:NSKeyValueObservingOptionNew context:nil];
         view = imageView;
     } else {
         LECourseLessonSectionItemLEIPracticeInputItemView* inputView = [self generatedInputItemView:index frame:frame];
+        inputView.input = [self.question.selections objectAtIndex:index];
+        [inputView addObserver:self forKeyPath:@"editing" options:NSKeyValueObservingOptionNew context:nil];
         view = inputView;
     }
     
-    view.multiple = ([self.question.answers count] > 1);
+    if (![self.question hasInputs]) {
+        view.multiple = ([self.question.answers count] > 1);
+    } else {
+        view.multiple = NO;
+    }
     
     if (self.submited) {
-        BOOL isAnswer = [self.question.answers containsObject:[@(index+1) stringValue]];
-        BOOL isSelection = [self.question.selections containsObject:[@(index+1) stringValue]];
-        if (isAnswer && isSelection) {
-            view.answer = LECourseLessonSectionItemLEIPracticeAnswerCorrect;
-        } else if (isAnswer && !isSelection) {
-            view.answer = LECourseLessonSectionItemLEIPracticeAnswerMiss;
-        } else if (!isAnswer && isSelection) {
-            view.answer = LECourseLessonSectionItemLEIPracticeAnswerWrong;
+        if (![self.question hasInputs]) {
+            BOOL isAnswer = [self.question.answers containsObject:[@(index+1) stringValue]];
+            BOOL isSelection = [self.question.selections containsObject:[@(index+1) stringValue]];
+            if (isAnswer && isSelection) {
+                view.answer = LECourseLessonSectionItemLEIPracticeAnswerCorrect;
+            } else if (isAnswer && !isSelection) {
+                view.answer = LECourseLessonSectionItemLEIPracticeAnswerMiss;
+            } else if (!isAnswer && isSelection) {
+                view.answer = LECourseLessonSectionItemLEIPracticeAnswerWrong;
+            }
+        } else {
+            NSString* answer = [self.question.answers objectAtIndex:index];
+            NSString* selection = [self.question.selections objectAtIndex:index];
+            if ([answer caseInsensitiveCompare:selection] == NSOrderedSame) {
+                view.answer = LECourseLessonSectionItemLEIPracticeAnswerCorrect;
+            } else {
+                view.answer = LECourseLessonSectionItemLEIPracticeAnswerWrong;
+            }
         }
     }
     
@@ -459,14 +510,23 @@
 
 -(void)clickItemView:(UITapGestureRecognizer*)recognizer {
     LECourseLessonSectionItemLEIPracticeItemView* view = (LECourseLessonSectionItemLEIPracticeItemView*)recognizer.view;
-    view.checked = !view.checked;
-    [self updateSelection:view.index selected:view.checked];
-    
-    if (view.checked && !view.multiple) {
+    if (view.editable == NO) {
+        view.checked = !view.checked;
+        [self updateSelection:view.index selected:view.checked];
+        
+        if (view.checked && !view.multiple) {
+            for (LECourseLessonSectionItemLEIPracticeItemView* itemView in self.itemViews) {
+                if (itemView != view && itemView.checked) {
+                    itemView.checked = NO;
+                    [self updateSelection:itemView.index selected:itemView.checked];
+                }
+            }
+        }
+    } else {
+        view.editing = YES;
         for (LECourseLessonSectionItemLEIPracticeItemView* itemView in self.itemViews) {
-            if (itemView != view && itemView.checked) {
-                itemView.checked = NO;
-                [self updateSelection:itemView.index selected:itemView.checked];
+            if (itemView != view && itemView.editing) {
+                itemView.editing = NO;
             }
         }
     }
@@ -501,6 +561,18 @@
     }
 }
 
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    for (LECourseLessonSectionItemLEIPracticeItemView* view in self.itemViews) {
+        CGPoint converted = [self convertPoint:point toView:view];
+        if (![view pointInside:converted withEvent:event]) {
+            if (view.editable && view.editing){
+                view.editing = NO;
+            }
+        }
+    }
+    return [super hitTest:point withEvent:event];
+}
+
 # pragma mark Observers
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if([keyPath isEqualToString:@"playing"]) {
@@ -528,6 +600,23 @@
                 self.playing = NO;
             }
         }
+    } else if([keyPath isEqualToString:@"editing"]) {
+        LECourseLessonSectionItemLEIPracticeInputItemView* inputView = (LECourseLessonSectionItemLEIPracticeInputItemView*)object;
+        if (!inputView.editing) {
+            NSMutableArray* selections = [NSMutableArray arrayWithArray:self.question.selections];
+            [selections replaceObjectAtIndex:inputView.index withObject:inputView.input];
+            self.question.selections = selections;
+        }
+        
+        __block BOOL editing = NO;
+        [self.itemViews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL* stop) {
+            LECourseLessonSectionItemLEIPracticeInputItemView* otherView = (LECourseLessonSectionItemLEIPracticeInputItemView*)obj;
+            if (otherView.editing) {
+                editing = YES;
+                *stop = YES;
+            }
+        }];
+        self.editing = editing;
     }
 }
 

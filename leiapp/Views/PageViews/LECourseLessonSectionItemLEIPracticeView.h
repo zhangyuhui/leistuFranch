@@ -13,5 +13,7 @@
 @property (strong, nonatomic) LECourseLessonLEIPracticeQuestion* question;
 @property (assign, nonatomic) BOOL submited;
 @property (assign, nonatomic) BOOL playing;
+@property (assign, nonatomic) BOOL editable;
+@property (assign, nonatomic) BOOL editing;
 -(CGFloat)heightForView;
 @end

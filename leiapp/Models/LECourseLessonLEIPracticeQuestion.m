@@ -23,12 +23,16 @@
     return [self hasExistance:self.images];
 }
 
+- (BOOL)hasAudios {
+    return [self hasExistance:self.audios];
+}
+
 - (BOOL)hasOptions {
     return [self hasExistance:self.options];
 }
 
-- (BOOL)hasAnswers {
-    return [self hasExistance:self.answers];
+- (BOOL)hasInputs {
+    return ![self hasOptions] && ![self hasAudios] && ![self hasImages] && [self hasExistance:self.answers];
 }
 
 @end

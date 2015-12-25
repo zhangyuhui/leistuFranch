@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -27,34 +27,29 @@
             <subviews>
                 <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="b83-pA-wbz" userLabel="page_control">
                     <rect key="frame" x="0.0" y="68" width="320" height="37"/>
-                    <animations/>
                     <color key="pageIndicatorTintColor" red="0.83529411764705885" green="0.83529411764705885" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </pageControl>
                 <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fVq-r9-r5b" userLabel="section_view_3" customClass="LECourseLessonsViewControllerLessonView">
                     <rect key="frame" x="20" y="122" width="280" height="400"/>
-                    <animations/>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="71k-8T-rvO" appends="YES" id="d0R-lG-EAi"/>
                     </connections>
                 </view>
                 <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AFv-YA-TfY" userLabel="section_view_2" customClass="LECourseLessonsViewControllerLessonView">
                     <rect key="frame" x="20" y="122" width="280" height="400"/>
-                    <animations/>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="6Ng-Lm-EKL" appends="YES" id="bdt-36-Lpt"/>
                     </connections>
                 </view>
                 <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r7J-E3-Lpv" userLabel="section_view_1" customClass="LECourseLessonsViewControllerLessonView">
                     <rect key="frame" x="20" y="122" width="280" height="400"/>
-                    <animations/>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="RCB-vm-VSP" appends="YES" id="HRY-zy-IuP"/>
                     </connections>
                 </view>
                 <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Fu-ud-7RX" userLabel="section_view_0" customClass="LECourseLessonsViewControllerLessonView">
                     <rect key="frame" x="20" y="122" width="280" height="400"/>
-                    <animations/>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="Xjf-XL-plY" appends="YES" id="Z3t-Rr-I4Y"/>
                     </connections>
@@ -64,7 +59,6 @@
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nVI-e0-DxJ" userLabel="menu_view" customClass="LECourseLessonsViewControllerMenuView">
                             <rect key="frame" x="160" y="0.0" width="160" height="200"/>
-                            <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="200" id="X9W-Fr-LIy"/>
@@ -72,7 +66,6 @@
                             <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         </tableView>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="nVI-e0-DxJ" firstAttribute="top" secondItem="xab-dD-Pc7" secondAttribute="top" id="XUc-ei-rGV"/>
@@ -84,7 +77,6 @@
                     </connections>
                 </view>
             </subviews>
-            <animations/>
             <color key="backgroundColor" red="0.90588235294117647" green="0.90588235294117647" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
             <gestureRecognizers/>
             <constraints>

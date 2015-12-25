@@ -1,5 +1,5 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8111e321-2e9d-6f48-ab63-e37c624f5af3++5262",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "CC96AD52878E60A5A5AE24D691641F1FA0E3661B",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
     "8111e321-2e9d-6f48-ab63-e37c624f5af3++2517" : {
 
@@ -12,17 +12,19 @@
     }
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "257185F50A6CAF8D6EACB6080934137EDF2291CB" : 0,
+    "8111e321-2e9d-6f48-ab63-e37c624f5af3++5262" : 0,
     "c6aff1d2-5ae7-0a42-9638-f633b93ce544++4138" : 0,
     "8111e321-2e9d-6f48-ab63-e37c624f5af3++2517" : 0,
-    "8111e321-2e9d-6f48-ab63-e37c624f5af3++5262" : 0
+    "CC96AD52878E60A5A5AE24D691641F1FA0E3661B" : 0,
+    "257185F50A6CAF8D6EACB6080934137EDF2291CB" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "15F225F8-32B8-44CB-84FA-8E3249E6E754",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "257185F50A6CAF8D6EACB6080934137EDF2291CB" : "lei_ios_v2\/",
+    "8111e321-2e9d-6f48-ab63-e37c624f5af3++5262" : "leistu2.1\/",
     "c6aff1d2-5ae7-0a42-9638-f633b93ce544++4138" : "lei_ios_v2\/leiapp\/Libraries\/SBJson\/",
     "8111e321-2e9d-6f48-ab63-e37c624f5af3++2517" : "leistu\/",
-    "8111e321-2e9d-6f48-ab63-e37c624f5af3++5262" : "leistu2.1\/"
+    "CC96AD52878E60A5A5AE24D691641F1FA0E3661B" : "leistuFranch\/",
+    "257185F50A6CAF8D6EACB6080934137EDF2291CB" : "lei_ios_v2\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "leiappv2",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -42,6 +44,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/192.168.0.209:8001\/svn2\/ulms_ios",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8111e321-2e9d-6f48-ab63-e37c624f5af3++5262"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:zhangyuhui\/leistuFranch.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CC96AD52878E60A5A5AE24D691641F1FA0E3661B"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/192.168.1.100\/svn\/lianputuao_1.x",

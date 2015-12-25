@@ -57,8 +57,8 @@
     [self.signInButton addTarget:self action:@selector(changebuttoncolored) forControlEvents:UIControlEventTouchUpOutside];
     [self.signInButton addTarget:self action:@selector(changebuttoncolored) forControlEvents:UIControlEventTouchUpOutside];
     [self.signInButton addTarget:self action:@selector(changebuttoncolored) forControlEvents:UIControlEventTouchCancel];
-//    self.usernameTextField.text = @"ceshi201507210";
-//    self.passwordTxtField.text = @"wenhua";
+    self.usernameTextField.text = @"fangbinbin";
+    self.passwordTxtField.text = @"wenhua";
 }
 -(void)changebuttoncolor{
     [self.signInButton setSelected:YES];

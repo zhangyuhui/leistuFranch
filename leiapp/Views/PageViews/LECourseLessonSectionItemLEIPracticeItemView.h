@@ -19,6 +19,8 @@ typedef NS_ENUM(NSInteger, LECourseLessonSectionItemLEIPracticeAnswer) {
 @property (assign, nonatomic) int index;
 @property (assign, nonatomic) BOOL checked;
 @property (assign, nonatomic) BOOL multiple;
+@property (assign, nonatomic) BOOL editable;
+@property (assign, nonatomic) BOOL editing;
 @property (assign, nonatomic) LECourseLessonSectionItemLEIPracticeAnswer answer;
 
 -(CGFloat)heightForView;

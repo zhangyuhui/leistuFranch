@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "CC96AD52878E60A5A5AE24D691641F1FA0E3661B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "257185F50A6CAF8D6EACB6080934137EDF2291CB" : 0,
+    "CC96AD52878E60A5A5AE24D691641F1FA0E3661B" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C795B1DB-9D61-48DF-962A-FF38D69854EA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "257185F50A6CAF8D6EACB6080934137EDF2291CB" : "lei_ios_v2",
+    "CC96AD52878E60A5A5AE24D691641F1FA0E3661B" : "leistuFranch\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "leiapp",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "leiapp.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:umooc\/lei_ios_v2.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "257185F50A6CAF8D6EACB6080934137EDF2291CB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:zhangyuhui\/leistuFranch.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CC96AD52878E60A5A5AE24D691641F1FA0E3661B"
+    }
+  ]
+}

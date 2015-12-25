@@ -105,6 +105,10 @@
 		980570151BAD43C4004D4261 /* LECourseLessonGlossaryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 980570131BAD43C4004D4261 /* LECourseLessonGlossaryDetailViewController.xib */; };
 		9805701B1BAE7C29004D4261 /* LECourseLessonGlossaryDetailStackedCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9805701A1BAE7C29004D4261 /* LECourseLessonGlossaryDetailStackedCardView.m */; };
 		9805701D1BAE7C39004D4261 /* LECourseLessonGlossaryDetailStackedCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9805701C1BAE7C39004D4261 /* LECourseLessonGlossaryDetailStackedCardView.xib */; };
+		9815CE761C2D1C330071EC96 /* LECourseLessonSectionItemLEIPracticeInputItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815CE741C2D1C330071EC96 /* LECourseLessonSectionItemLEIPracticeInputItemView.m */; };
+		9815CE771C2D1C330071EC96 /* LECourseLessonSectionItemLEIPracticeInputItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9815CE751C2D1C330071EC96 /* LECourseLessonSectionItemLEIPracticeInputItemView.xib */; };
+		9815CE7A1C2D5DB20071EC96 /* LECourseLessonPracticeAnswerFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815CE791C2D5DB20071EC96 /* LECourseLessonPracticeAnswerFooterView.m */; };
+		9815CE7C1C2D5DBD0071EC96 /* LECourseLessonPracticeAnswerFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9815CE7B1C2D5DBD0071EC96 /* LECourseLessonPracticeAnswerFooterView.xib */; };
 		98161DFC1BC1EBEB00793324 /* LECourseLessonSectionItemBaseAudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98161DFB1BC1EBEB00793324 /* LECourseLessonSectionItemBaseAudioView.m */; };
 		98161DFF1BC2018E00793324 /* LEAudioControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98161DFE1BC2018E00793324 /* LEAudioControlView.m */; };
 		98161E011BC201B500793324 /* LEAudioControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98161E001BC201B500793324 /* LEAudioControlView.xib */; };
@@ -542,6 +546,12 @@
 		980570191BAE7C29004D4261 /* LECourseLessonGlossaryDetailStackedCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LECourseLessonGlossaryDetailStackedCardView.h; sourceTree = "<group>"; };
 		9805701A1BAE7C29004D4261 /* LECourseLessonGlossaryDetailStackedCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LECourseLessonGlossaryDetailStackedCardView.m; sourceTree = "<group>"; };
 		9805701C1BAE7C39004D4261 /* LECourseLessonGlossaryDetailStackedCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LECourseLessonGlossaryDetailStackedCardView.xib; sourceTree = "<group>"; };
+		9815CE731C2D1C330071EC96 /* LECourseLessonSectionItemLEIPracticeInputItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LECourseLessonSectionItemLEIPracticeInputItemView.h; sourceTree = "<group>"; };
+		9815CE741C2D1C330071EC96 /* LECourseLessonSectionItemLEIPracticeInputItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LECourseLessonSectionItemLEIPracticeInputItemView.m; sourceTree = "<group>"; };
+		9815CE751C2D1C330071EC96 /* LECourseLessonSectionItemLEIPracticeInputItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LECourseLessonSectionItemLEIPracticeInputItemView.xib; sourceTree = "<group>"; };
+		9815CE781C2D5DB20071EC96 /* LECourseLessonPracticeAnswerFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LECourseLessonPracticeAnswerFooterView.h; sourceTree = "<group>"; };
+		9815CE791C2D5DB20071EC96 /* LECourseLessonPracticeAnswerFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LECourseLessonPracticeAnswerFooterView.m; sourceTree = "<group>"; };
+		9815CE7B1C2D5DBD0071EC96 /* LECourseLessonPracticeAnswerFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LECourseLessonPracticeAnswerFooterView.xib; sourceTree = "<group>"; };
 		98161DFA1BC1EBEB00793324 /* LECourseLessonSectionItemBaseAudioView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LECourseLessonSectionItemBaseAudioView.h; sourceTree = "<group>"; };
 		98161DFB1BC1EBEB00793324 /* LECourseLessonSectionItemBaseAudioView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LECourseLessonSectionItemBaseAudioView.m; sourceTree = "<group>"; };
 		98161DFD1BC2018E00793324 /* LEAudioControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEAudioControlView.h; sourceTree = "<group>"; };
@@ -1409,6 +1419,9 @@
 				98AC7EF21BD83F0E006DBFED /* LECourseLessonSectionItemLEIPracticeImageItemView.h */,
 				98AC7EF31BD83F0E006DBFED /* LECourseLessonSectionItemLEIPracticeImageItemView.m */,
 				98AC7EF51BD83F1C006DBFED /* LECourseLessonSectionItemLEIPracticeImageItemView.xib */,
+				9815CE731C2D1C330071EC96 /* LECourseLessonSectionItemLEIPracticeInputItemView.h */,
+				9815CE741C2D1C330071EC96 /* LECourseLessonSectionItemLEIPracticeInputItemView.m */,
+				9815CE751C2D1C330071EC96 /* LECourseLessonSectionItemLEIPracticeInputItemView.xib */,
 				984944041BC967D800BB2B84 /* LECourseLessonSectionItemLEIRolePlayView.h */,
 				984944051BC967D800BB2B84 /* LECourseLessonSectionItemLEIRolePlayView.m */,
 				984944071BC9684300BB2B84 /* LECourseLessonSectionItemLEIRolePlayView.xib */,
@@ -1784,6 +1797,9 @@
 				98A5980D1B957A48001E0F6B /* LETabMenuView.h */,
 				98A5980E1B957A48001E0F6B /* LETabMenuView.m */,
 				98A598141B957C2C001E0F6B /* LETabMenuView.xib */,
+				9815CE781C2D5DB20071EC96 /* LECourseLessonPracticeAnswerFooterView.h */,
+				9815CE791C2D5DB20071EC96 /* LECourseLessonPracticeAnswerFooterView.m */,
+				9815CE7B1C2D5DBD0071EC96 /* LECourseLessonPracticeAnswerFooterView.xib */,
 				98056FD71BAA7F5B004D4261 /* LECourseLessonRuleViewControllerCoverView.h */,
 				98056FD81BAA7F5B004D4261 /* LECourseLessonRuleViewControllerCoverView.m */,
 				98056FDA1BAA7F6A004D4261 /* LECourseLessonRuleViewControllerCoverView.xib */,
@@ -1963,6 +1979,7 @@
 				980570101BAD1993004D4261 /* LECourseLessonGlossaryViewController.xib in Resources */,
 				98FEC73E1B93913600D03A3D /* LEClassViewController.xib in Resources */,
 				98056FE01BAA8F40004D4261 /* LECourseLessonRuleViewControllerPanelView.xib in Resources */,
+				9815CE771C2D1C330071EC96 /* LECourseLessonSectionItemLEIPracticeInputItemView.xib in Resources */,
 				98004BF01BB2733E00569617 /* LESettingViewTableViewCell.xib in Resources */,
 				9844C8B71BB60F270094D4D5 /* LECourseLessonStudyViewControllerPageView.xib in Resources */,
 				98645CEE1BDF6BB200F3DDB3 /* LESettingOptionsViewController.xib in Resources */,
@@ -1982,6 +1999,7 @@
 				9830669B1BC4CE5800AC0751 /* LECourseLessonPracticeAnswerViewController.xib in Resources */,
 				98C2C6801BCAE28A00266A32 /* LECourseLessonRolePlayViewController.xib in Resources */,
 				98DE1A071B79E49500789B41 /* LELaunchScreen.xib in Resources */,
+				9815CE7C1C2D5DBD0071EC96 /* LECourseLessonPracticeAnswerFooterView.xib in Resources */,
 				981905521B9E224C0009A6BE /* LECourseLessonsViewControllerLessonView.xib in Resources */,
 				98FEC72B1B8F73F700D03A3D /* LEMainViewController.xib in Resources */,
 				98645CE91BDF5D7A00F3DDB3 /* LECourseClearViewController.xib in Resources */,
@@ -2080,6 +2098,7 @@
 				98E1792C1B80534600AC4B2F /* LEConfigurationLoader.m in Sources */,
 				98FFE74A1B8A5C5F0050FA6B /* LECommentService.m in Sources */,
 				022E8D6B1BE9A787008C611F /* SetExplanViewController.m in Sources */,
+				9815CE7A1C2D5DB20071EC96 /* LECourseLessonPracticeAnswerFooterView.m in Sources */,
 				9816DED01BCCED5D0065CD2E /* UIView+BlurredImage.m in Sources */,
 				98E179481B81AAE200AC4B2F /* NSString+Addition.m in Sources */,
 				989FAA761B7DF1B900F80114 /* LEHttpRequestOperation.m in Sources */,
@@ -2278,6 +2297,7 @@
 				98E179411B81975800AC4B2F /* LEConstants.m in Sources */,
 				981904931B9BD29D0009A6BE /* LECourseLessonLEIAudioItem.m in Sources */,
 				98573C631BC3795C009106C1 /* LECourseLessonSectionItemLEIReadingView.m in Sources */,
+				9815CE761C2D1C330071EC96 /* LECourseLessonSectionItemLEIPracticeInputItemView.m in Sources */,
 				8454CE6E1C0C5A4A00319DD7 /* DXAlertView.m in Sources */,
 				02DDDD9E1C02B3A7005FFB31 /* FMDatabasePool.m in Sources */,
 				98DE19F91B79E49500789B41 /* main.m in Sources */,

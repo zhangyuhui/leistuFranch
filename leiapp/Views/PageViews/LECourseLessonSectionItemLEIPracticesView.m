@@ -216,6 +216,18 @@
     }
 }
 
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    for (LECourseLessonSectionItemLEIPracticeView* view in self.itemViews) {
+        CGPoint converted = [self convertPoint:point toView:view];
+        if (![view pointInside:converted withEvent:event]) {
+            if (view.editable && view.editing){
+                view.editing = NO;
+            }
+        }
+    }
+    return [super hitTest:point withEvent:event];
+}
+
 # pragma mark Observers
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if([keyPath isEqualToString:@"playing"]) {
