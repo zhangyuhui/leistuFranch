@@ -22,4 +22,8 @@
 @property (nonatomic, assign) int type;
 @property (nonatomic, assign) int index;
 
+- (BOOL)hasImages;
+- (BOOL)hasOptions;
+- (BOOL)hasAnswers;
+
 @end

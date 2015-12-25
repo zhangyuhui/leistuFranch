@@ -7,6 +7,28 @@
 //
 
 #import "LECourseLessonLEIPracticeQuestion.h"
+#import "NSString+Addition.h"
+
+@interface LECourseLessonLEIPracticeQuestion()
+- (BOOL)hasExistance:(NSArray*)values;
+@end
 
 @implementation LECourseLessonLEIPracticeQuestion
+
+- (BOOL)hasExistance:(NSArray*)values {
+    return values != nil && [values count] > 0 && (![NSString stringIsNilOrEmpty:[values firstObject]]);
+}
+
+- (BOOL)hasImages {
+    return [self hasExistance:self.images];
+}
+
+- (BOOL)hasOptions {
+    return [self hasExistance:self.options];
+}
+
+- (BOOL)hasAnswers {
+    return [self hasExistance:self.answers];
+}
+
 @end

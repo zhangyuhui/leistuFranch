@@ -12,6 +12,7 @@
 #import "LEPreferenceService.h"
 #import "LECourseLessonSectionItemView.h"
 #import "NSString+Addition.h"
+#import "LECourseLessonSectionItemLEIPracticeInputItemView.h"
 #import "LECourseLessonSectionItemLEIPracticeImageItemView.h"
 
 #define kItemViewTopSpacing 10
@@ -120,10 +121,14 @@
 }
 
 -(void)setupItemViews {
-    if ([self.question.images count] > 0 && (![NSString stringIsNilOrEmpty:[self.question.images firstObject]])) {
+    if ([self.question hasImages]) {
         [self setupImageItemViews];
-    } else {
+    } else if ([self.question hasOptions]) {
         [self setupRegularItemViews];
+    } else if ([self.question hasAnswers]) {
+        [self setupFillItemViews];
+    } else {
+        [self setupFillItemView];
     }
 }
 
@@ -265,6 +270,89 @@
     self.viewHeight = viewY;
 }
 
+-(void)setupFillItemViews {
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    CGFloat viewPadding = [[LEPreferenceService sharedService] paddingSize];
+    CGFloat viewWidth = (screenWidth - viewPadding*5.0)/2.0;
+    CGFloat viewHeight = -1;
+    int itemCount = (int)[self.question.images count];
+    
+    CGFloat viewX = viewPadding;
+    CGFloat viewY = self.viewHeight + viewPadding;
+    for (int itemIndex = 0 ; itemIndex < itemCount; itemIndex ++) {
+        LECourseLessonSectionItemLEIPracticeItemView* view = [self generatedItemView:itemIndex frame:CGRectMake(viewX, viewY, viewWidth, CGFLOAT_MAX)];
+        
+        if (viewHeight < 0) {
+            viewHeight = [view heightForView];
+        }
+        
+        CGRect frame = view.frame;
+        frame.size.height = viewHeight;
+        view.frame = frame;
+        
+        NSLayoutConstraint *widthConstraint = [NSLayoutConstraint constraintWithItem:view
+                                                                           attribute:NSLayoutAttributeWidth
+                                                                           relatedBy:NSLayoutRelationEqual
+                                                                              toItem:nil
+                                                                           attribute:NSLayoutAttributeWidth
+                                                                          multiplier:0.0
+                                                                            constant:viewWidth];
+        [view addConstraint:widthConstraint];
+        
+        NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:view
+                                                                            attribute:NSLayoutAttributeHeight
+                                                                            relatedBy:NSLayoutRelationEqual
+                                                                               toItem:nil
+                                                                            attribute:NSLayoutAttributeHeight
+                                                                           multiplier:0.0
+                                                                             constant:viewHeight];
+        [view addConstraint:heightConstraint];
+        
+        view.index = itemIndex;
+        
+        [self addSubview:view];
+        
+        NSLayoutConstraint *leadingConstraint = [NSLayoutConstraint constraintWithItem:view
+                                                                             attribute:NSLayoutAttributeLeading
+                                                                             relatedBy:NSLayoutRelationEqual
+                                                                                toItem:self
+                                                                             attribute:NSLayoutAttributeLeading
+                                                                            multiplier:1.0
+                                                                              constant:viewX];
+        [self addConstraint:leadingConstraint];
+        
+        NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:view
+                                                                         attribute:NSLayoutAttributeTop
+                                                                         relatedBy:NSLayoutRelationEqual
+                                                                            toItem:self
+                                                                         attribute:NSLayoutAttributeTop
+                                                                        multiplier:1.0
+                                                                          constant:viewY];
+        
+        [self addConstraint:topConstraint];
+        
+        if (itemIndex % 2 == 0) {
+            viewX += viewWidth + viewPadding;
+        } else {
+            viewX = viewPadding;
+            viewY += viewHeight + viewPadding;
+        }
+        
+        [self.itemViews addObject:view];
+    }
+    
+    if (itemCount % 2 == 1) {
+        viewY += viewHeight + viewPadding;
+    }
+    
+    self.viewHeight = viewY;
+}
+
+-(void)setupFillItemView {
+    
+}
+
 -(LECourseLessonSectionItemLEIPracticeOptionItemView*)generatedOptionItemView:(int)index frame:(CGRect)frame {
     NSString* option = [self.question.options objectAtIndexedSubscript:index];
     LECourseLessonSectionItemLEIPracticeOptionItemView* optionView = [[LECourseLessonSectionItemLEIPracticeOptionItemView alloc] initWithFrame:frame];
@@ -286,6 +374,11 @@
     return imageView;
 }
 
+-(LECourseLessonSectionItemLEIPracticeInputItemView*)generatedInputItemView:(int)index frame:(CGRect)frame {
+    LECourseLessonSectionItemLEIPracticeInputItemView* inputView = [[LECourseLessonSectionItemLEIPracticeInputItemView alloc] initWithFrame:frame];
+    return inputView;
+}
+
 -(LECourseLessonSectionItemLEIPracticeItemView*)generatedItemView:(int)index frame:(CGRect)frame {
     LECourseLessonSectionItemLEIPracticeItemView* view;
     NSString* option = [self.question.options objectAtIndexedSubscript:index];
@@ -305,7 +398,11 @@
         imageView.image = [LECourseLessonSectionItemView pathForAsset:image];
         [imageView addObserver:self forKeyPath:@"playing" options:NSKeyValueObservingOptionNew context:nil];
         view = imageView;
+    } else {
+        LECourseLessonSectionItemLEIPracticeInputItemView* inputView = [self generatedInputItemView:index frame:frame];
+        view = inputView;
     }
+    
     view.multiple = ([self.question.answers count] > 1);
     
     if (self.submited) {
