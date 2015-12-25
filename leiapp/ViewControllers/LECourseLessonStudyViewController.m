@@ -35,6 +35,7 @@
     BOOL isSpeechEnd;
 }
 @property (nonatomic, strong) IBOutlet LECourseLessonStudyViewControllerPageView* pageView;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint *pageViewBottomConstraint;
 @property (nonatomic, strong)  UIView  * toolBarView;
 @property (nonatomic, strong)  UIButton* prevButton;
 @property (nonatomic, strong)  UIButton* nextButton;
@@ -93,6 +94,8 @@ static BOOL first = YES;
     [notification addObserver:self selector:@selector(showCoursePracticeAnswer:) name:kLENotificationCourseStudyShowPracticeAnswer object:nil];
     [notification addObserver:self selector:@selector(showCourseProxyView:) name:kLENotificationCourseStudyShowProxyView object:nil];
     [notification addObserver:self selector:@selector(showCourseRolePlayView:) name:kLENotificationCourseStudyShowRolePlayView object:nil];
+    [notification addObserver:self selector:@selector(moveUpPageView:) name:UIKeyboardWillShowNotification object:nil];
+    [notification addObserver:self selector:@selector(moveDownPageView:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -156,6 +159,8 @@ static BOOL first = YES;
     [notification removeObserver:self name:kLENotificationCourseStudyShowPracticeAnswer object:nil];
     [notification removeObserver:self name:kLENotificationCourseStudyShowProxyView object:nil];
     [notification removeObserver:self name:kLENotificationCourseStudyShowRolePlayView object:nil];
+    [notification removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [notification removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (instancetype)initWithCourse:(LECourse*)course lesson:(NSUInteger)lesson{
@@ -638,5 +643,13 @@ static BOOL first = YES;
 -(void)endIsSpench:(NSNotification*)notify
 {
     isSpeechEnd = YES;
+}
+-(void)moveUpPageView:(NSNotification*)notification {
+    NSDictionary *userInfo = [notification userInfo];
+    CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    self.pageViewBottomConstraint.constant = keyboardSize.height;
+}
+-(void)moveDownPageView:(NSNotification*)notification {
+    self.pageViewBottomConstraint.constant = 44;
 }
 @end

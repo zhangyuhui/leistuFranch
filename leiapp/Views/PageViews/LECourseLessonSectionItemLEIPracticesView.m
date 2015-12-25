@@ -113,6 +113,7 @@
         prevView = view;
         
         [view addObserver:self forKeyPath:@"playing" options:NSKeyValueObservingOptionNew context:nil];
+        [view addObserver:self forKeyPath:@"editing" options:NSKeyValueObservingOptionNew context:nil];
         
         [self.itemViews addObject:view];
     }
@@ -185,6 +186,7 @@
     [self.itemViews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL* stop) {
         LECourseLessonSectionItemLEIPracticeView* view = (LECourseLessonSectionItemLEIPracticeView*)obj;
         [view removeObserver:self forKeyPath:@"playing"];
+        [view removeObserver:self forKeyPath:@"editing"];
     }];
     [self.itemViews removeAllObjects];
     [super destroySubViews];
@@ -211,6 +213,9 @@
             LECourseLessonSectionItemLEIPracticeView* view = (LECourseLessonSectionItemLEIPracticeView*)obj;
             if (view.playing) {
                 view.playing = NO;
+            }
+            if (view.editing) {
+                view.editing = NO;
             }
         }];
     }
@@ -252,6 +257,31 @@
                 }
             }];
             if (!isPlaying && self.selected) {
+                self.selected = NO;
+            }
+        }
+    } else if([keyPath isEqualToString:@"editing"]) {
+        LECourseLessonSectionItemLEIPracticeView* view = (LECourseLessonSectionItemLEIPracticeView*)object;
+        if (view.editing) {
+            [self.itemViews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL* stop) {
+                LECourseLessonSectionItemLEIPracticeView* other = (LECourseLessonSectionItemLEIPracticeView*)obj;
+                if (other.editing && view != other) {
+                    other.editing = NO;
+                }
+            }];
+            if (!self.selected) {
+                self.selected = YES;
+            }
+        } else {
+            __block BOOL editing = NO;
+            [self.itemViews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL* stop) {
+                LECourseLessonSectionItemLEIPracticeView* view = (LECourseLessonSectionItemLEIPracticeView*)obj;
+                if (view.editing) {
+                    editing = YES;
+                    *stop = YES;
+                }
+            }];
+            if (!editing && self.selected) {
                 self.selected = NO;
             }
         }
