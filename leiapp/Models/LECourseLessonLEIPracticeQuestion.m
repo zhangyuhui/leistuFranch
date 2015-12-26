@@ -35,4 +35,8 @@
     return ![self hasOptions] && ![self hasAudios] && ![self hasImages] && [self hasExistance:self.answers];
 }
 
+- (BOOL)hasNote {
+    return ![self hasOptions] && ![self hasAudios] && ![self hasImages] && ![self hasExistance:self.answers];
+}
+
 @end

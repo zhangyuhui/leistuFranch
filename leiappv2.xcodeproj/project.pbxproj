@@ -251,6 +251,8 @@
 		98C2C68B1BCB2A2600266A32 /* LEConversionBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C2C68A1BCB2A2600266A32 /* LEConversionBackgroundView.m */; };
 		98C2C68E1BCB60D000266A32 /* LEConversionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C2C68D1BCB60D000266A32 /* LEConversionView.m */; };
 		98C2C6901BCB63E800266A32 /* LEConversionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98C2C68F1BCB63E800266A32 /* LEConversionView.xib */; };
+		98C7E4081C2E069300AC30B4 /* LECourseLessonSectionItemLEIPracticeNoteItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C7E4071C2E069300AC30B4 /* LECourseLessonSectionItemLEIPracticeNoteItemView.m */; };
+		98C7E40A1C2E06A200AC30B4 /* LECourseLessonSectionItemLEIPracticeNoteItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98C7E4091C2E06A200AC30B4 /* LECourseLessonSectionItemLEIPracticeNoteItemView.xib */; };
 		98C7F5B71BDDB82800CECC1D /* LEErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C7F5B61BDDB82800CECC1D /* LEErrors.m */; };
 		98C7F5BB1BDE862300CECC1D /* LEProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C7F5B91BDE862300CECC1D /* LEProfileViewController.m */; };
 		98C7F5BC1BDE862300CECC1D /* LEProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98C7F5BA1BDE862300CECC1D /* LEProfileViewController.xib */; };
@@ -804,6 +806,9 @@
 		98C2C68C1BCB60D000266A32 /* LEConversionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEConversionView.h; sourceTree = "<group>"; };
 		98C2C68D1BCB60D000266A32 /* LEConversionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEConversionView.m; sourceTree = "<group>"; };
 		98C2C68F1BCB63E800266A32 /* LEConversionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LEConversionView.xib; sourceTree = "<group>"; };
+		98C7E4061C2E069300AC30B4 /* LECourseLessonSectionItemLEIPracticeNoteItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LECourseLessonSectionItemLEIPracticeNoteItemView.h; sourceTree = "<group>"; };
+		98C7E4071C2E069300AC30B4 /* LECourseLessonSectionItemLEIPracticeNoteItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LECourseLessonSectionItemLEIPracticeNoteItemView.m; sourceTree = "<group>"; };
+		98C7E4091C2E06A200AC30B4 /* LECourseLessonSectionItemLEIPracticeNoteItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LECourseLessonSectionItemLEIPracticeNoteItemView.xib; sourceTree = "<group>"; };
 		98C7F5B51BDDB82800CECC1D /* LEErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEErrors.h; sourceTree = "<group>"; };
 		98C7F5B61BDDB82800CECC1D /* LEErrors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEErrors.m; sourceTree = "<group>"; };
 		98C7F5B81BDE862300CECC1D /* LEProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEProfileViewController.h; sourceTree = "<group>"; };
@@ -1422,6 +1427,9 @@
 				9815CE731C2D1C330071EC96 /* LECourseLessonSectionItemLEIPracticeInputItemView.h */,
 				9815CE741C2D1C330071EC96 /* LECourseLessonSectionItemLEIPracticeInputItemView.m */,
 				9815CE751C2D1C330071EC96 /* LECourseLessonSectionItemLEIPracticeInputItemView.xib */,
+				98C7E4061C2E069300AC30B4 /* LECourseLessonSectionItemLEIPracticeNoteItemView.h */,
+				98C7E4071C2E069300AC30B4 /* LECourseLessonSectionItemLEIPracticeNoteItemView.m */,
+				98C7E4091C2E06A200AC30B4 /* LECourseLessonSectionItemLEIPracticeNoteItemView.xib */,
 				984944041BC967D800BB2B84 /* LECourseLessonSectionItemLEIRolePlayView.h */,
 				984944051BC967D800BB2B84 /* LECourseLessonSectionItemLEIRolePlayView.m */,
 				984944071BC9684300BB2B84 /* LECourseLessonSectionItemLEIRolePlayView.xib */,
@@ -1999,6 +2007,7 @@
 				9830669B1BC4CE5800AC0751 /* LECourseLessonPracticeAnswerViewController.xib in Resources */,
 				98C2C6801BCAE28A00266A32 /* LECourseLessonRolePlayViewController.xib in Resources */,
 				98DE1A071B79E49500789B41 /* LELaunchScreen.xib in Resources */,
+				98C7E40A1C2E06A200AC30B4 /* LECourseLessonSectionItemLEIPracticeNoteItemView.xib in Resources */,
 				9815CE7C1C2D5DBD0071EC96 /* LECourseLessonPracticeAnswerFooterView.xib in Resources */,
 				981905521B9E224C0009A6BE /* LECourseLessonsViewControllerLessonView.xib in Resources */,
 				98FEC72B1B8F73F700D03A3D /* LEMainViewController.xib in Resources */,
@@ -2175,6 +2184,7 @@
 				98056FFD1BABEE50004D4261 /* MCUtil.m in Sources */,
 				98C2C68E1BCB60D000266A32 /* LEConversionView.m in Sources */,
 				98C2C6831BCAE31C00266A32 /* LECourseLessonRolePlayLeadingView.m in Sources */,
+				98C7E4081C2E069300AC30B4 /* LECourseLessonSectionItemLEIPracticeNoteItemView.m in Sources */,
 				02997C601BF3271900FC9B16 /* AUMedia.m in Sources */,
 				981904901B9BD1F20009A6BE /* LECourseLessonThinkTextItem.m in Sources */,
 				98A598191B96B62A001E0F6B /* LEMainViewControlerCellViewTableViewCell.m in Sources */,

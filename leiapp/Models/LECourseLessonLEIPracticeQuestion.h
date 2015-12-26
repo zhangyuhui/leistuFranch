@@ -26,5 +26,6 @@
 - (BOOL)hasAudios;
 - (BOOL)hasOptions;
 - (BOOL)hasInputs;
+- (BOOL)hasNote;
 
 @end

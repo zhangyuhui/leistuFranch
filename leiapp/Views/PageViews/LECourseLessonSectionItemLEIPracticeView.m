@@ -13,6 +13,7 @@
 #import "LECourseLessonSectionItemView.h"
 #import "NSString+Addition.h"
 #import "LECourseLessonSectionItemLEIPracticeInputItemView.h"
+#import "LECourseLessonSectionItemLEIPracticeNoteItemView.h"
 #import "LECourseLessonSectionItemLEIPracticeImageItemView.h"
 
 #define kItemViewTopSpacing 10
@@ -43,6 +44,10 @@
                 [selections addObject:@""];
             }
             self.question.selections = selections;
+        }
+    } else if ([question hasNote]) {
+        if (self.question.selections == nil || [self.question.selections count] == 0) {
+            self.question.selections = [NSMutableArray arrayWithObject:@""];
         }
     }
     
@@ -86,8 +91,14 @@
     }
     if ([self.question hasInputs]) {
         [self.itemViews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL* stop) {
-            LECourseLessonSectionItemLEIPracticeInputItemView* audioView = (LECourseLessonSectionItemLEIPracticeInputItemView*)obj;
-            [audioView removeObserver:self forKeyPath:@"editing"];
+            LECourseLessonSectionItemLEIPracticeInputItemView* inputView = (LECourseLessonSectionItemLEIPracticeInputItemView*)obj;
+            [inputView removeObserver:self forKeyPath:@"editing"];
+        }];
+    }
+    if ([self.question hasNote]) {
+        [self.itemViews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL* stop) {
+            LECourseLessonSectionItemLEIPracticeNoteItemView* noteView = (LECourseLessonSectionItemLEIPracticeNoteItemView*)obj;
+            [noteView removeObserver:self forKeyPath:@"editing"];
         }];
     }
     [super removeFromSuperview];
@@ -165,8 +176,8 @@
         [self setupRegularItemViews];
     } else if ([self.question hasInputs]) {
         [self setupInputItemViews];
-    } else {
-        [self setupFillItemView];
+    } else if ([self.question hasNote]) {
+        [self setupNoteItemViews];
     }
 }
 
@@ -387,8 +398,83 @@
     self.viewHeight = viewY;
 }
 
--(void)setupFillItemView {
+-(void)setupNoteItemViews {
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    CGFloat viewPadding = [[LEPreferenceService sharedService] paddingSize];
+    CGFloat viewWidth = (screenWidth - viewPadding*2.0);
+    CGFloat viewHeight = -1;
+    int itemCount = (int)[self.question.selections count];
     
+    CGFloat viewX = 0;
+    CGFloat viewY = self.viewHeight + viewPadding;
+    for (int itemIndex = 0 ; itemIndex < itemCount; itemIndex ++) {
+        LECourseLessonSectionItemLEIPracticeItemView* view = [self generatedItemView:itemIndex frame:CGRectMake(viewX, viewY, viewWidth, CGFLOAT_MAX)];
+        
+        if (viewHeight < 0) {
+            viewHeight = [view heightForView];
+        }
+        
+        CGRect frame = view.frame;
+        frame.size.height = viewHeight;
+        view.frame = frame;
+        
+        NSLayoutConstraint *widthConstraint = [NSLayoutConstraint constraintWithItem:view
+                                                                           attribute:NSLayoutAttributeWidth
+                                                                           relatedBy:NSLayoutRelationEqual
+                                                                              toItem:nil
+                                                                           attribute:NSLayoutAttributeWidth
+                                                                          multiplier:0.0
+                                                                            constant:viewWidth];
+        [view addConstraint:widthConstraint];
+        
+        NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:view
+                                                                            attribute:NSLayoutAttributeHeight
+                                                                            relatedBy:NSLayoutRelationEqual
+                                                                               toItem:nil
+                                                                            attribute:NSLayoutAttributeHeight
+                                                                           multiplier:0.0
+                                                                             constant:viewHeight];
+        [view addConstraint:heightConstraint];
+        
+        view.index = itemIndex;
+        
+        [self addSubview:view];
+        
+        NSLayoutConstraint *leadingConstraint = [NSLayoutConstraint constraintWithItem:view
+                                                                             attribute:NSLayoutAttributeLeading
+                                                                             relatedBy:NSLayoutRelationEqual
+                                                                                toItem:self
+                                                                             attribute:NSLayoutAttributeLeading
+                                                                            multiplier:1.0
+                                                                              constant:viewX];
+        [self addConstraint:leadingConstraint];
+        
+        NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:view
+                                                                         attribute:NSLayoutAttributeTop
+                                                                         relatedBy:NSLayoutRelationEqual
+                                                                            toItem:self
+                                                                         attribute:NSLayoutAttributeTop
+                                                                        multiplier:1.0
+                                                                          constant:viewY];
+        
+        [self addConstraint:topConstraint];
+        
+        if (itemIndex % 2 == 0) {
+            viewX += viewWidth + viewPadding;
+        } else {
+            viewX = viewPadding;
+            viewY += viewHeight + viewPadding;
+        }
+        
+        [self.itemViews addObject:view];
+    }
+    
+    if (itemCount % 2 == 1) {
+        viewY += viewHeight + viewPadding;
+    }
+    
+    self.viewHeight = viewY;
 }
 
 -(LECourseLessonSectionItemLEIPracticeOptionItemView*)generatedOptionItemView:(int)index frame:(CGRect)frame {
@@ -417,6 +503,11 @@
     return inputView;
 }
 
+-(LECourseLessonSectionItemLEIPracticeNoteItemView*)generatedNoteItemView:(int)index frame:(CGRect)frame {
+    LECourseLessonSectionItemLEIPracticeNoteItemView* noteView = [[LECourseLessonSectionItemLEIPracticeNoteItemView alloc] initWithFrame:frame];
+    return noteView;
+}
+
 -(LECourseLessonSectionItemLEIPracticeItemView*)generatedItemView:(int)index frame:(CGRect)frame {
     LECourseLessonSectionItemLEIPracticeItemView* view;
     if ([self.question hasOptions]) {
@@ -433,21 +524,41 @@
         LECourseLessonSectionItemLEIPracticeImageItemView* imageView = [self generatedImageItemView:index frame:frame];
         imageView.image = [LECourseLessonSectionItemView pathForAsset:image];
         view = imageView;
-    } else {
+    } else if ([self.question hasInputs]) {
         LECourseLessonSectionItemLEIPracticeInputItemView* inputView = [self generatedInputItemView:index frame:frame];
         inputView.input = [self.question.selections objectAtIndex:index];
         [inputView addObserver:self forKeyPath:@"editing" options:NSKeyValueObservingOptionNew context:nil];
         view = inputView;
+    } else if ([self.question hasNote]) {
+        LECourseLessonSectionItemLEIPracticeNoteItemView* inputView = [self generatedNoteItemView:index frame:frame];
+        inputView.note = [self.question.selections objectAtIndex:index];
+        [inputView addObserver:self forKeyPath:@"editing" options:NSKeyValueObservingOptionNew context:nil];
+        view = inputView;
     }
     
-    if (![self.question hasInputs]) {
+    if (![self.question hasInputs] && ![self.question hasNote]) {
         view.multiple = ([self.question.answers count] > 1);
     } else {
         view.multiple = NO;
     }
     
     if (self.submited) {
-        if (![self.question hasInputs]) {
+        if ([self.question hasInputs]) {
+            NSString* answer = [self.question.answers objectAtIndex:index];
+            NSString* selection = [self.question.selections objectAtIndex:index];
+            if ([answer caseInsensitiveCompare:selection] == NSOrderedSame) {
+                view.answer = LECourseLessonSectionItemLEIPracticeAnswerCorrect;
+            } else {
+                view.answer = LECourseLessonSectionItemLEIPracticeAnswerWrong;
+            }
+        } else if ([self.question hasNote]) {
+            NSString* selection = [self.question.selections objectAtIndex:index];
+            if (![selection isEmptyOrWhitespace]) {
+                view.answer = LECourseLessonSectionItemLEIPracticeAnswerCorrect;
+            } else {
+                view.answer = LECourseLessonSectionItemLEIPracticeAnswerWrong;
+            }
+        } else {
             BOOL isAnswer = [self.question.answers containsObject:[@(index+1) stringValue]];
             BOOL isSelection = [self.question.selections containsObject:[@(index+1) stringValue]];
             if (isAnswer && isSelection) {
@@ -455,14 +566,6 @@
             } else if (isAnswer && !isSelection) {
                 view.answer = LECourseLessonSectionItemLEIPracticeAnswerMiss;
             } else if (!isAnswer && isSelection) {
-                view.answer = LECourseLessonSectionItemLEIPracticeAnswerWrong;
-            }
-        } else {
-            NSString* answer = [self.question.answers objectAtIndex:index];
-            NSString* selection = [self.question.selections objectAtIndex:index];
-            if ([answer caseInsensitiveCompare:selection] == NSOrderedSame) {
-                view.answer = LECourseLessonSectionItemLEIPracticeAnswerCorrect;
-            } else {
                 view.answer = LECourseLessonSectionItemLEIPracticeAnswerWrong;
             }
         }
@@ -601,16 +704,24 @@
             }
         }
     } else if([keyPath isEqualToString:@"editing"]) {
-        LECourseLessonSectionItemLEIPracticeInputItemView* inputView = (LECourseLessonSectionItemLEIPracticeInputItemView*)object;
-        if (!inputView.editing) {
+        LECourseLessonSectionItemLEIPracticeItemView* view = (LECourseLessonSectionItemLEIPracticeItemView*)object;
+        if (!view.editing) {
+            NSString* value = @"";
+            if ([self.question hasInputs]) {
+                LECourseLessonSectionItemLEIPracticeInputItemView* inputView = (LECourseLessonSectionItemLEIPracticeInputItemView*)view;
+                value = inputView.input;
+            } else if ([self.question hasNote]) {
+                LECourseLessonSectionItemLEIPracticeNoteItemView* noteView = (LECourseLessonSectionItemLEIPracticeNoteItemView*)view;
+                value = noteView.note;
+            }
             NSMutableArray* selections = [NSMutableArray arrayWithArray:self.question.selections];
-            [selections replaceObjectAtIndex:inputView.index withObject:inputView.input];
+            [selections replaceObjectAtIndex:view.index withObject:value];
             self.question.selections = selections;
         }
         
         __block BOOL editing = NO;
         [self.itemViews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL* stop) {
-            LECourseLessonSectionItemLEIPracticeInputItemView* otherView = (LECourseLessonSectionItemLEIPracticeInputItemView*)obj;
+            LECourseLessonSectionItemLEIPracticeItemView* otherView = (LECourseLessonSectionItemLEIPracticeItemView*)obj;
             if (otherView.editing) {
                 editing = YES;
                 *stop = YES;
