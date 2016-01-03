@@ -208,7 +208,7 @@
             
             [self.contentView addConstraint:footerTopConstraint];
             
-            itemY += footerHeight;
+            itemY += itemPadding + footerHeight;
             prevView = footerView;
             
             [self.itemViews addObject:footerView];

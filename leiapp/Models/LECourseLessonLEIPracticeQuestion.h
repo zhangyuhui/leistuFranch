@@ -14,10 +14,10 @@
 @interface LECourseLessonLEIPracticeQuestion : JSONModel
 
 @property (nonatomic, strong) NSString* question;
-@property (nonatomic, strong) NSArray* options;
-@property (nonatomic, strong) NSArray* images;
-@property (nonatomic, strong) NSArray* audios;
-@property (nonatomic, strong) NSArray* answers;
+@property (nonatomic, strong) NSArray<Optional>* options;
+@property (nonatomic, strong) NSArray<Optional>* images;
+@property (nonatomic, strong) NSArray<Optional>* audios;
+@property (nonatomic, strong) NSArray<Optional>* answers;
 @property (nonatomic, strong) NSArray<Optional>* selections;
 @property (nonatomic, assign) int type;
 @property (nonatomic, assign) int index;
